@@ -20,6 +20,9 @@
 		DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */; };
 		DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1322B576690009EBA9E /* ChoiceButtonProtocol.swift */; };
 		DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1342B576861009EBA9E /* PaymentButton.swift */; };
+		DF94D1552B57BF23009EBA9E /* Cell in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1542B57BF22009EBA9E /* Cell */; };
+		DF94D1572B57BF3F009EBA9E /* CommonOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */; };
+		DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
 		DF94D1322B576690009EBA9E /* ChoiceButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButtonProtocol.swift; sourceTree = "<group>"; };
 		DF94D1342B576861009EBA9E /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		DF94D1542B57BF22009EBA9E /* Cell */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cell; sourceTree = "<group>"; };
+		DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonOrderViewController.swift; sourceTree = "<group>"; };
+		DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +100,7 @@
 		DF94D1222B575623009EBA9E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DF94D1542B57BF22009EBA9E /* Cell */,
 				DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */,
 				DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */,
 				DF94D1342B576861009EBA9E /* PaymentButton.swift */,
@@ -104,6 +111,8 @@
 		DF94D1232B57562D009EBA9E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */,
+				DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */,
 				DF94D1112B5755E0009EBA9E /* ViewController.swift */,
 				DF94D1242B57564F009EBA9E /* CommonViewController.swift */,
 				DF94D12E2B575EF6009EBA9E /* CartViewController.swift */,
@@ -198,17 +207,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */,
 				DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */,
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
 				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
 				DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */,
 				DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */,
+				DF94D1572B57BF3F009EBA9E /* CommonOrderViewController.swift in Sources */,
 				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
 				DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */,
 				DF94D1272B5756B9009EBA9E /* CustomNavigationBar.swift in Sources */,
 				DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */,
+				DF94D1552B57BF23009EBA9E /* Cell in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
