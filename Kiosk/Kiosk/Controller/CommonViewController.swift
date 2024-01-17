@@ -10,6 +10,7 @@ import UIKit
 class CommonViewController: UIViewController {
     
     let customNavigationBar = CustomNavigationBar()
+    lazy var safeArea = self.view.safeAreaLayoutGuide
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +21,7 @@ class CommonViewController: UIViewController {
     
     func setupView() {
         self.view.backgroundColor = .systemGray6
-        
-        let safeArea = view.safeAreaLayoutGuide
+    
         
         // 네비게이션바
         view.customAddSubView(customNavigationBar)
