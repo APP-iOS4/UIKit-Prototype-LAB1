@@ -1,5 +1,5 @@
 ## Subway Kiosk
-(현재 main branch 이슈가 있습니다. dev branch를 이용해 주세요.)
+
 
 
 ## ADS
