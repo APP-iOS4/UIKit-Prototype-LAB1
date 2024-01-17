@@ -17,26 +17,9 @@ class ViewController: CommonViewController {
 
     override func setupView() {
         super.setupView()
-        customNavigationBar.delegate = self
         customNavigationBar.title = "타이틀 테스트"
         
     }
 
 }
 
-
-extension ViewController: CustomNavigationBarProtocol {
-    func didTapHomeButton() {
-        print("홈버튼 눌림")
-    }
-    
-    func didTapRightButton() {
-        print("우측 버튼 눌림")
-    }
-    
-    func didTapBackButton() {
-        print("백 버튼 눌림")
-    }
-    
-    
-}

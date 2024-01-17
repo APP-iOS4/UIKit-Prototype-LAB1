@@ -24,6 +24,10 @@ class CommonViewController: UIViewController {
         
         // 네비게이션바
         view.customAddSubView(customNavigationBar)
+        
+        navigationController?.isNavigationBarHidden = true
+        customNavigationBar.delegate = self
+        
         NSLayoutConstraint.activate([
             customNavigationBar.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             customNavigationBar.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
@@ -34,3 +38,18 @@ class CommonViewController: UIViewController {
 
 }
 
+extension CommonViewController: CustomNavigationBarProtocol {
+    func didTapHomeButton() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func didTapRightButton() {
+        
+    }
+    
+    func didTapBackButton() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
+}

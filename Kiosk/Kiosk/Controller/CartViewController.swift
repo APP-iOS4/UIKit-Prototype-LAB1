@@ -15,7 +15,6 @@ class CartViewController: CommonViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        customNavigationBar.delegate = self
         customNavigationBar.title = "ewjrwehrwekjrhwer"
 
         cardButton.paymentTitle = "카드 결제"
@@ -33,20 +32,3 @@ class CartViewController: CommonViewController {
     
 
 }
-
-extension CartViewController: CustomNavigationBarProtocol {
-    func didTapHomeButton() {
-
-    }
-    
-    func didTapRightButton() {
-
-    }
-    
-    func didTapBackButton() {
-
-    }
-
-}
-
-

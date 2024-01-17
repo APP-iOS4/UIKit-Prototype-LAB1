@@ -45,7 +45,6 @@ class ToppingViewController: CommonViewController {
             return collectionView
         }()
         
-        customNavigationBar.delegate = self
         customNavigationBar.title = "토핑 테스트"
         cheeseCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(cheeseCollectionView)
@@ -110,6 +109,10 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigationController?.pushViewController(ChoiceVegitableViewController(), animated: true)
+    }
+    
 }
 
 extension ToppingViewController: ChoiceButtonProtocol {
@@ -118,20 +121,5 @@ extension ToppingViewController: ChoiceButtonProtocol {
         print("버튼 눌림")
     }
     
-    
-}
-
-extension ToppingViewController: CustomNavigationBarProtocol {
-    func didTapHomeButton() {
-        print("홈")
-    }
-    
-    func didTapRightButton() {
-        print("장바구니")
-    }
-    
-    func didTapBackButton() {
-        print("이전으로")
-    }
     
 }

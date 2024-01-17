@@ -33,7 +33,6 @@ class SandwichViewController: CommonViewController {
             return collectionView
         }()
         
-        customNavigationBar.delegate = self
         customNavigationBar.title = "타이틀 테스트"
         sandwichCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(sandwichCollectionView)
@@ -83,23 +82,8 @@ extension SandwichViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = sandwichCollectionView.cellForItem(at: indexPath) as! SandwichButton
-        cell.isSelect.toggle()
+//        cell.isSelect.toggle()
+        navigationController?.pushViewController(ChoiceBreadViewController(), animated: true)
+        
     }
-}
-
-// MARK: 커스텀 네비게이션바 프로토콜(함수 설정해주기)
-
-extension SandwichViewController: CustomNavigationBarProtocol {
-    func didTapHomeButton() {
-        print("홈")
-    }
-    
-    func didTapRightButton() {
-        print("장바구니")
-    }
-    
-    func didTapBackButton() {
-        print("이전으로")
-    }
-    
 }

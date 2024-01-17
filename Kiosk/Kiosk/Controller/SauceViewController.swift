@@ -53,7 +53,6 @@ class SauceViewController: CommonViewController {
             return collectionView
         }()
         
-        customNavigationBar.delegate = self
         customNavigationBar.title = "소스 테스트"
         sauceCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(sauceCollectionView)
@@ -189,20 +188,5 @@ extension SauceViewController: ChoiceButtonProtocol {
         print("버튼 눌림")
     }
     
-    
-}
-
-extension SauceViewController: CustomNavigationBarProtocol {
-    func didTapHomeButton() {
-        print("홈")
-    }
-    
-    func didTapRightButton() {
-        print("장바구니")
-    }
-    
-    func didTapBackButton() {
-        print("이전으로")
-    }
     
 }

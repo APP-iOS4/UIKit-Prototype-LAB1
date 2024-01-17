@@ -44,7 +44,6 @@ class ChoiceBreadViewController: CommonViewController {
             }()
 
         
-        customNavigationBar.delegate = self
         customNavigationBar.title = "빵 선택"
         
         choiceBreadCollectionView.backgroundColor = .systemGray6
@@ -159,20 +158,7 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = choiceBreadCollectionView.cellForItem(at: indexPath) as! BreadButton
-        cell.isSelect.toggle()
-    }
-}
-
-extension ChoiceBreadViewController: CustomNavigationBarProtocol {
-    func didTapHomeButton() {
-        print("홈")
-    }
-    
-    func didTapRightButton() {
-        print("장바구니")
-    }
-    
-    func didTapBackButton() {
-        print("이전")
+//        cell.isSelect.toggle()
+        navigationController?.pushViewController(ToppingViewController(), animated: true)
     }
 }
