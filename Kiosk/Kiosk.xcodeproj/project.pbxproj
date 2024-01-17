@@ -19,6 +19,7 @@
 		DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D12E2B575EF6009EBA9E /* CartViewController.swift */; };
 		DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */; };
 		DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1322B576690009EBA9E /* ChoiceButtonProtocol.swift */; };
+		DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1342B576861009EBA9E /* PaymentButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DF94D12E2B575EF6009EBA9E /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
 		DF94D1322B576690009EBA9E /* ChoiceButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButtonProtocol.swift; sourceTree = "<group>"; };
+		DF94D1342B576861009EBA9E /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */,
 				DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */,
+				DF94D1342B576861009EBA9E /* PaymentButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			files = (
 				DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */,
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
+				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
 				DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */,
 				DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */,
 				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,

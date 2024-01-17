@@ -10,24 +10,24 @@ import UIKit
 class CartViewController: CommonViewController {
     
     let breadButton = ChoiceButton()
+    let cardButton = PaymentButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         customNavigationBar.delegate = self
         customNavigationBar.title = "ewjrwehrwekjrhwer"
+
+        cardButton.paymentTitle = "카드 결제"
+        cardButton.paymentEngTitle = "Cards"
         
-        breadButton.buttonTitle = "15cm"
-        breadButton.isSelected = true
-        breadButton.delegate = self
-        
-        view.customAddSubView(breadButton)
+        view.customAddSubView(cardButton)
         
         NSLayoutConstraint.activate([
-            breadButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-            breadButton.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
-            breadButton.widthAnchor.constraint(equalToConstant: 343),
-            breadButton.heightAnchor.constraint(equalToConstant: 83),
+            cardButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
+            cardButton.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+            cardButton.widthAnchor.constraint(equalToConstant: 349),
+            cardButton.bottomAnchor.constraint(equalTo: cardButton.paymentEngLabel.bottomAnchor, constant: 26)
         ])
     }
     
@@ -49,10 +49,4 @@ extension CartViewController: CustomNavigationBarProtocol {
 
 }
 
-extension CartViewController: ChoiceButtonProtocol {
-    func didTapButton() {
-        breadButton.isSelected.toggle()
-    }
-    
-    
-}
+
