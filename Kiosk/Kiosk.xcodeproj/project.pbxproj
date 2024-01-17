@@ -23,6 +23,7 @@
 		DF94D1552B57BF23009EBA9E /* Cell in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1542B57BF22009EBA9E /* Cell */; };
 		DF94D1572B57BF3F009EBA9E /* CommonOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */; };
 		DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */; };
+		DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15A2B57BFD6009EBA9E /* SideBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		DF94D1542B57BF22009EBA9E /* Cell */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cell; sourceTree = "<group>"; };
 		DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonOrderViewController.swift; sourceTree = "<group>"; };
 		DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
+		DF94D15A2B57BFD6009EBA9E /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			children = (
 				DF94D1542B57BF22009EBA9E /* Cell */,
 				DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */,
+				DF94D15A2B57BFD6009EBA9E /* SideBar.swift */,
 				DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */,
 				DF94D1342B576861009EBA9E /* PaymentButton.swift */,
 			);
@@ -217,6 +220,7 @@
 				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
+				DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */,
 				DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */,
 				DF94D1272B5756B9009EBA9E /* CustomNavigationBar.swift in Sources */,
 				DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */,
