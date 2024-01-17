@@ -21,7 +21,6 @@ class CommonViewController: UIViewController {
     
     func setupView() {
         self.view.backgroundColor = .systemGray6
-    
         
         // 네비게이션바
         view.customAddSubView(customNavigationBar)

@@ -10,79 +10,52 @@ import UIKit
 class SandwichViewController: CommonViewController {
 
     let sandwichStore = SandwichStore()
-    let sandwichCollectionView: UICollectionView
+    var sandwichCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let sandwichButton = SandwichButton()
     
     var screenWidth = 0.0
     var screenHeight = 0.0
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        
-        let layout = UICollectionViewFlowLayout()
-//        let itemWidth = screenWidth / 4.0
-        
-        layout.itemSize = CGSize(width: screenWidth / 4.0, height: screenHeight)
-        layout.minimumLineSpacing = 40
-        layout.minimumInteritemSpacing = 40
-        
-        sandwichCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func setupView() {
         super.setupView()
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
         
-        let safeArea: UILayoutGuide = view.safeAreaLayoutGuide
+        sandwichCollectionView = {
+            let collectionViewLayout = UICollectionViewFlowLayout()
+            collectionViewLayout.itemSize = CGSize(width: screenWidth / 5.0, height: screenHeight / 3.0)
+            collectionViewLayout.scrollDirection = .vertical
+            collectionViewLayout.minimumLineSpacing = 80
+            collectionViewLayout.minimumInteritemSpacing = 10
+            let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.register(SandwichButton.self, forCellWithReuseIdentifier: sandwichButton.sandwichButtonID)
+            return collectionView
+        }()
         
         customNavigationBar.delegate = self
         customNavigationBar.title = "타이틀 테스트"
-        
-        sandwichCollectionView.backgroundColor = .systemMint
+        sandwichCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(sandwichCollectionView)
         
         sandwichCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            sandwichCollectionView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            sandwichCollectionView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 40),
             sandwichCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            sandwichCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            sandwichCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            sandwichCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 40),
+            sandwichCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40)
         ])
         
         sandwichCollectionView.delegate = self
         sandwichCollectionView.dataSource = self
-        sandwichCollectionView.register(SandwichButton.self, forCellWithReuseIdentifier: "SandwichButton")
+//        sandwichCollectionView.register(SandwichButton.self, forCellWithReuseIdentifier: sandwichButton.sandwichButtonID)
         
-        print()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-    
-    //    func aaa() {
-    //        sandwichButton.sandwichTitle = "랍스터"
-    //        sandwichButton.sandwichEngTitle = "랍스터"
-    //        sandwichButton.sandwichCalTitle = "랍스터kcal"
-    //
-    //        view.customAddSubView(sandwichButton)
-    //
-    //        NSLayoutConstraint.activate([
-    //            sandwichButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
-    //            sandwichButton.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
-    //            sandwichButton.widthAnchor.constraint(equalToConstant: 349),
-    //            sandwichButton.bottomAnchor.constraint(equalTo: sandwichButton.sandwichCalLabel.bottomAnchor, constant: 26)
-    //        ])
-    //
-    //    }
     
 }
 
@@ -91,6 +64,7 @@ class SandwichViewController: CommonViewController {
 extension SandwichViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(sandwichStore.sandwiches.count)
         return sandwichStore.sandwiches.count
     }
     
@@ -100,11 +74,17 @@ extension SandwichViewController: UICollectionViewDelegate, UICollectionViewData
         cell.sandwichImageView.image = UIImage(named: "card")
         cell.sandwichTitle = sandwichStore.sandwiches[indexPath.row].korName
         cell.sandwichEngTitle = sandwichStore.sandwiches[indexPath.row].engName
-        cell.sandwichCalTitle = String(sandwichStore.sandwiches[indexPath.row].cal)
+        if let cal = sandwichStore.sandwiches[indexPath.row].cal {
+            cell.sandwichCalTitle = String(cal) + "kcal"
+        }
         
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = sandwichCollectionView.cellForItem(at: indexPath) as! SandwichButton
+        cell.isSelect.toggle()
+    }
 }
 
 // MARK: 커스텀 네비게이션바 프로토콜(함수 설정해주기)

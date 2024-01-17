@@ -8,9 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		090580792B576FF0005985B2 /* SandwichButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580782B576FF0005985B2 /* SandwichButton.swift */; };
-		0905807B2B57754C005985B2 /* SandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0905807A2B57754C005985B2 /* SandwichViewController.swift */; };
-		0905807D2B57848B005985B2 /* SandwichStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0905807C2B57848B005985B2 /* SandwichStruct.swift */; };
+		0905807D2B57848B005985B2 /* ComponentStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0905807C2B57848B005985B2 /* ComponentStruct.swift */; };
 		090580812B578B48005985B2 /* SandwichStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580802B578B48005985B2 /* SandwichStore.swift */; };
+		090580872B57A522005985B2 /* CheeseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580862B57A522005985B2 /* CheeseStore.swift */; };
+		090580892B57A603005985B2 /* ToppingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580882B57A603005985B2 /* ToppingStore.swift */; };
+		0905808B2B57A64C005985B2 /* SauceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0905808A2B57A64C005985B2 /* SauceStore.swift */; };
+		0905808D2B57A6BE005985B2 /* CookieStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0905808C2B57A6BE005985B2 /* CookieStore.swift */; };
+		090580912B57A8CD005985B2 /* SandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580902B57A8CD005985B2 /* SandwichViewController.swift */; };
+		090580932B57AD50005985B2 /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580922B57AD50005985B2 /* ToppingViewController.swift */; };
 		DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10D2B5755E0009EBA9E /* AppDelegate.swift */; };
 		DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */; };
 		DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1112B5755E0009EBA9E /* ViewController.swift */; };
@@ -28,9 +33,14 @@
 
 /* Begin PBXFileReference section */
 		090580782B576FF0005985B2 /* SandwichButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichButton.swift; sourceTree = "<group>"; };
-		0905807A2B57754C005985B2 /* SandwichViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichViewController.swift; sourceTree = "<group>"; };
-		0905807C2B57848B005985B2 /* SandwichStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SandwichStruct.swift; path = Kiosk/Controller/SandwichStruct.swift; sourceTree = SOURCE_ROOT; };
+		0905807C2B57848B005985B2 /* ComponentStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComponentStruct.swift; path = Kiosk/Controller/ComponentStruct.swift; sourceTree = SOURCE_ROOT; };
 		090580802B578B48005985B2 /* SandwichStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandwichStore.swift; sourceTree = "<group>"; };
+		090580862B57A522005985B2 /* CheeseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheeseStore.swift; sourceTree = "<group>"; };
+		090580882B57A603005985B2 /* ToppingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingStore.swift; sourceTree = "<group>"; };
+		0905808A2B57A64C005985B2 /* SauceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceStore.swift; sourceTree = "<group>"; };
+		0905808C2B57A6BE005985B2 /* CookieStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieStore.swift; sourceTree = "<group>"; };
+		090580902B57A8CD005985B2 /* SandwichViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandwichViewController.swift; sourceTree = "<group>"; };
+		090580922B57AD50005985B2 /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		DF94D10A2B5755E0009EBA9E /* Kiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiosk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF94D10D2B5755E0009EBA9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,8 +105,12 @@
 		DF94D1212B57561D009EBA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0905807C2B57848B005985B2 /* SandwichStruct.swift */,
+				0905807C2B57848B005985B2 /* ComponentStruct.swift */,
 				090580802B578B48005985B2 /* SandwichStore.swift */,
+				090580862B57A522005985B2 /* CheeseStore.swift */,
+				090580882B57A603005985B2 /* ToppingStore.swift */,
+				0905808A2B57A64C005985B2 /* SauceStore.swift */,
+				0905808C2B57A6BE005985B2 /* CookieStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,7 +132,8 @@
 				DF94D1112B5755E0009EBA9E /* ViewController.swift */,
 				DF94D1242B57564F009EBA9E /* CommonViewController.swift */,
 				DF94D12E2B575EF6009EBA9E /* CartViewController.swift */,
-				0905807A2B57754C005985B2 /* SandwichViewController.swift */,
+				090580902B57A8CD005985B2 /* SandwichViewController.swift */,
+				090580922B57AD50005985B2 /* ToppingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -211,20 +226,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */,
-				0905807B2B57754C005985B2 /* SandwichViewController.swift in Sources */,
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
 				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
+				0905808B2B57A64C005985B2 /* SauceStore.swift in Sources */,
 				DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */,
+				090580872B57A522005985B2 /* CheeseStore.swift in Sources */,
+				090580932B57AD50005985B2 /* ToppingViewController.swift in Sources */,
 				090580792B576FF0005985B2 /* SandwichButton.swift in Sources */,
+				090580892B57A603005985B2 /* ToppingStore.swift in Sources */,
+				090580912B57A8CD005985B2 /* SandwichViewController.swift in Sources */,
 				DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */,
 				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
 				DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */,
 				DF94D1272B5756B9009EBA9E /* CustomNavigationBar.swift in Sources */,
+				0905808D2B57A6BE005985B2 /* CookieStore.swift in Sources */,
 				090580812B578B48005985B2 /* SandwichStore.swift in Sources */,
 				DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */,
-				0905807D2B57848B005985B2 /* SandwichStruct.swift in Sources */,
+				0905807D2B57848B005985B2 /* ComponentStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

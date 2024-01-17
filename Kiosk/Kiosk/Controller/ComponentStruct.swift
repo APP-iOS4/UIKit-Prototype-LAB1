@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct SandwichStruct {
+struct ComponentStruct {
     let korName: String
     let engName: String
-    let cal: Int
+    let cal: Int?
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class SandwichButton: UICollectionViewCell {
     
+    let sandwichButtonID: String = "SandwichButton"
+    
     var sandwichTitle: String = "" {
         didSet {
             sandwichLabel.text = sandwichTitle
@@ -27,19 +29,30 @@ class SandwichButton: UICollectionViewCell {
         }
     }
     
+    var isSelect: Bool = false {
+        didSet {
+            if isSelect == true {
+                containerView.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+            } else {
+                containerView.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
+            }
+        }
+    }
+    
     let containerView: UIView = UIView()
     let sandwichImageView = UIImageView()
     let sandwichLabel = UILabel()
     let sandwichEngLabel = UILabel()
     let sandwichCalLabel = UILabel()
    
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         containerView.backgroundColor = .white
+        containerView.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
+        containerView.layer.borderWidth = 4
+        containerView.layer.cornerRadius = 15
+        
         sandwichImageView.contentMode = .scaleAspectFit
-        sandwichImageView.image = UIImage(named: "card")
         
         sandwichLabel.textColor = .black
         sandwichLabel.font = .systemFont(ofSize: 30, weight: .semibold)
