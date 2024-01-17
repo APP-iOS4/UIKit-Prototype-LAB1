@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D72969622B57705F00CBE78C /* ChoiceBreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72969612B57705F00CBE78C /* ChoiceBreadViewController.swift */; };
+		D72969642B57731900CBE78C /* BreadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72969632B57731900CBE78C /* BreadButton.swift */; };
+		D72969662B57A6D300CBE78C /* BreadStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72969652B57A6D300CBE78C /* BreadStore.swift */; };
+		D72969682B57A7E400CBE78C /* BreadStrct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72969672B57A7E400CBE78C /* BreadStrct.swift */; };
 		DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10D2B5755E0009EBA9E /* AppDelegate.swift */; };
 		DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */; };
 		DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1112B5755E0009EBA9E /* ViewController.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D72969612B57705F00CBE78C /* ChoiceBreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceBreadViewController.swift; sourceTree = "<group>"; };
+		D72969632B57731900CBE78C /* BreadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadButton.swift; sourceTree = "<group>"; };
+		D72969652B57A6D300CBE78C /* BreadStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreadStore.swift; path = Kiosk/View/BreadStore.swift; sourceTree = SOURCE_ROOT; };
+		D72969672B57A7E400CBE78C /* BreadStrct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BreadStrct.swift; path = Kiosk/View/BreadStrct.swift; sourceTree = SOURCE_ROOT; };
 		DF94D10A2B5755E0009EBA9E /* Kiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiosk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF94D10D2B5755E0009EBA9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +95,8 @@
 		DF94D1212B57561D009EBA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D72969652B57A6D300CBE78C /* BreadStore.swift */,
+				D72969672B57A7E400CBE78C /* BreadStrct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -97,6 +107,7 @@
 				DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */,
 				DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */,
 				DF94D1342B576861009EBA9E /* PaymentButton.swift */,
+				D72969632B57731900CBE78C /* BreadButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +118,7 @@
 				DF94D1112B5755E0009EBA9E /* ViewController.swift */,
 				DF94D1242B57564F009EBA9E /* CommonViewController.swift */,
 				DF94D12E2B575EF6009EBA9E /* CartViewController.swift */,
+				D72969612B57705F00CBE78C /* ChoiceBreadViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -202,12 +214,16 @@
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
 				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
 				DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */,
+				D72969642B57731900CBE78C /* BreadButton.swift in Sources */,
 				DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */,
+				D72969662B57A6D300CBE78C /* BreadStore.swift in Sources */,
+				D72969682B57A7E400CBE78C /* BreadStrct.swift in Sources */,
 				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
 				DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */,
 				DF94D1272B5756B9009EBA9E /* CustomNavigationBar.swift in Sources */,
+				D72969622B57705F00CBE78C /* ChoiceBreadViewController.swift in Sources */,
 				DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
