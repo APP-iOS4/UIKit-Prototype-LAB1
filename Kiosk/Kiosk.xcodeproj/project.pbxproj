@@ -24,6 +24,7 @@
 		DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */; };
 		DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15A2B57BFD6009EBA9E /* SideBar.swift */; };
 		DF94D15E2B57C055009EBA9E /* OrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15D2B57C055009EBA9E /* OrderListCell.swift */; };
+		DF94D1602B57C0EE009EBA9E /* ChoiceVegitableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15F2B57C0EE009EBA9E /* ChoiceVegitableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
 		DF94D15A2B57BFD6009EBA9E /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		DF94D15D2B57C055009EBA9E /* OrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCell.swift; sourceTree = "<group>"; };
+		DF94D15F2B57C0EE009EBA9E /* ChoiceVegitableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceVegitableViewController.swift; path = "../../../../../../../.Trash/UIKit-Prototype-LAB1 오후 4.52.09/Kiosk/Kiosk/Controller/ChoiceVegitableViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 		DF94D1232B57562D009EBA9E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DF94D15F2B57C0EE009EBA9E /* ChoiceVegitableViewController.swift */,
 				DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */,
 				DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */,
 				DF94D1112B5755E0009EBA9E /* ViewController.swift */,
@@ -221,6 +224,7 @@
 				DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */,
 				DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */,
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
+				DF94D1602B57C0EE009EBA9E /* ChoiceVegitableViewController.swift in Sources */,
 				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
 				DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */,
 				DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */,
