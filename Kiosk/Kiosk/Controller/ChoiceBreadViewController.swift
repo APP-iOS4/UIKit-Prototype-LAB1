@@ -10,7 +10,7 @@ import UIKit
 class ChoiceBreadViewController: CommonViewController {
     
     let breadStore = BreadStore()
-    var             choiceBreadCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    var choiceBreadCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     
     var screenWidth = 0.0
     var screenHeight = 0.0
@@ -33,20 +33,21 @@ class ChoiceBreadViewController: CommonViewController {
         
         choiceBreadCollectionView = {
             let collectionViewLayout = UICollectionViewFlowLayout()
-            collectionViewLayout.itemSize = CGSize(width: screenWidth / 4.0, height: screenHeight)
+            collectionViewLayout.itemSize = CGSize(width: screenWidth / 5.0, height: screenHeight / 3.0)
             collectionViewLayout.scrollDirection = .vertical
-            collectionViewLayout.minimumLineSpacing = 40
-            collectionViewLayout.minimumInteritemSpacing = 40
-            
+            collectionViewLayout.minimumLineSpacing = 80
+            collectionViewLayout.minimumInteritemSpacing = 10
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-            collectionView.translatesAutoresizingMaskIntoConstraints = false
-            collectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
-            
-            return collectionView
-        }()
+                collectionView.translatesAutoresizingMaskIntoConstraints = false
+                collectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
+                return collectionView
+            }()
+
         
         customNavigationBar.delegate = self
         customNavigationBar.title = "빵 선택"
+        
+        choiceBreadCollectionView.backgroundColor = .systemGray6
         
         choiceCmLabel.text = "사이즈 선택"
         choiceCmLabel.textColor = .black
@@ -79,7 +80,7 @@ class ChoiceBreadViewController: CommonViewController {
         view.customAddSubView(choiceNotSelectedButton)
         view.customAddSubView(choice15cmButton)
         view.customAddSubView(choice30cmButton)
-        view.customAddSubView(            choiceBreadCollectionView)
+        view.customAddSubView(choiceBreadCollectionView)
         
         choiceBreadCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -129,7 +130,7 @@ class ChoiceBreadViewController: CommonViewController {
         
         choiceBreadCollectionView.delegate = self
         choiceBreadCollectionView.dataSource = self
-        choiceBreadCollectionView.register(BreadButton.self, forCellWithReuseIdentifier: "BreadButton")
+        choiceBreadCollectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
     }
     
     
@@ -142,20 +143,20 @@ class ChoiceBreadViewController: CommonViewController {
 extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(breadStore.bread.count)
         return breadStore.bread.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell =             choiceBreadCollectionView.dequeueReusableCell(withReuseIdentifier: "BreadButton", for: indexPath) as! BreadButton
         
-        cell.breadImageView.image = UIImage(named: "flatbrad, asd")
+        cell.breadImageView.image = UIImage(named: "\(breadStore.bread[indexPath.row].breadEngTitle)")
         cell.breadTitle = breadStore.bread[indexPath.row].breadTitle
         cell.breadEngTitle = breadStore.bread[indexPath.row].breadEngTitle
         cell.breadKcalTitle = String(breadStore.bread[indexPath.row].breadKcalTitle)
         
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = choiceBreadCollectionView.cellForItem(at: indexPath) as! BreadButton
         cell.isSelect.toggle()

@@ -30,14 +30,14 @@ class BreadButton: UICollectionViewCell {
     }
     
     var isSelect: Bool = false {
-        didSet {
-            if isSelected == true {
-                containerView.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
-            } else {
-                containerView.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
-            }
-        }
-    }
+           didSet {
+               if isSelect == true {
+                   containerView.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+               } else {
+                   containerView.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
+               }
+           }
+       }
     
     let containerView = UIView()
     let breadImageView = UIImageView()
@@ -48,21 +48,28 @@ class BreadButton: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         containerView.backgroundColor = .white
+        containerView.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
+        containerView.layer.borderWidth = 4
+        containerView.layer.cornerRadius = 15
+        
         breadImageView.contentMode = .scaleAspectFit
         breadImageView.image = UIImage(named: "flatbread")
+        
         breadLabel.textColor = .black
         breadLabel.font = .systemFont(ofSize: 36, weight: .semibold)
         breadLabel.textAlignment = .center
+        
         breadEngLabel.font = .systemFont(ofSize: 24, weight: .semibold)
         breadEngLabel.textColor = .init(named: "paymentEngLabel")
         breadEngLabel.textAlignment = .center
+        
         breadKcalLabel.font = .systemFont(ofSize: 18, weight: .bold)
         breadKcalLabel.textColor = .init(named: "mainOrange")
         breadKcalLabel.textAlignment = .center
         
         customAddSubView(containerView)
+        containerView.customAddSubView(breadLabel)
         containerView.customAddSubView(breadImageView)
         containerView.customAddSubView(breadLabel)
         containerView.customAddSubView(breadEngLabel)

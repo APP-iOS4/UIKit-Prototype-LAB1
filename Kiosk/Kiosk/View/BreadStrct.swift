@@ -10,5 +10,5 @@ import Foundation
 struct BreadStrct {
     let breadTitle: String
     let breadEngTitle: String
-    let breadKcalTitle: Int
+    let breadKcalTitle: String
 }
