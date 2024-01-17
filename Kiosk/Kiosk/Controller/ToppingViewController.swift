@@ -8,7 +8,7 @@
 import UIKit
 
 class ToppingViewController: CommonViewController {
-
+    
     let cheeseStore = CheeseStore()
     var cheeseCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let cheeseButton = SandwichButton()
@@ -46,15 +46,20 @@ class ToppingViewController: CommonViewController {
         customNavigationBar.delegate = self
         customNavigationBar.title = "토핑 테스트"
         cheeseCollectionView.backgroundColor = .systemGray6
+        self.view.customAddSubView(cheeseLabel)
         self.view.addSubview(cheeseCollectionView)
         
         cheeseCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            cheeseCollectionView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 40),
+            cheeseLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 40),
+            cheeseLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 40),
+            
+            cheeseCollectionView.topAnchor.constraint(equalTo: cheeseLabel.bottomAnchor, constant: 20),
             cheeseCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             cheeseCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 40),
-            cheeseCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40)
+            cheeseCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40),
+            
         ])
         
         cheeseCollectionView.delegate = self
@@ -63,23 +68,7 @@ class ToppingViewController: CommonViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    override func viewDidLoad() { super.viewDidLoad() }
 }
 
 extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -99,20 +88,16 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
             cell.sandwichCalTitle = String(cal) + "kcal"
         }
         
-        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = cheeseCollectionView.cellForItem(at: indexPath) as! SandwichButton
+        cell.isSelect.toggle()
     }
     
 }
 
-extension ToppingViewController: ChoiceButtonProtocol {
-    func didTapButton() {
-        
-        print("버튼 눌림")
-    }
-    
-    
-}
 
 extension ToppingViewController: CustomNavigationBarProtocol {
     func didTapHomeButton() {
@@ -128,3 +113,4 @@ extension ToppingViewController: CustomNavigationBarProtocol {
     }
     
 }
+
