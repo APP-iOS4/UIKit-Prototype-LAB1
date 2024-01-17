@@ -25,6 +25,10 @@
 		DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15A2B57BFD6009EBA9E /* SideBar.swift */; };
 		DF94D15E2B57C055009EBA9E /* OrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15D2B57C055009EBA9E /* OrderListCell.swift */; };
 		DF94D1602B57C0EE009EBA9E /* ChoiceVegitableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15F2B57C0EE009EBA9E /* ChoiceVegitableViewController.swift */; };
+		DF94D1622B57C324009EBA9E /* SandwichButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1612B57C324009EBA9E /* SandwichButton.swift */; };
+		DF94D1642B57C87A009EBA9E /* VegitableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1632B57C87A009EBA9E /* VegitableCell.swift */; };
+		DF94D1662B57CB5C009EBA9E /* VegitableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1652B57CB5C009EBA9E /* VegitableModel.swift */; };
+		DF94D1682B57CC2E009EBA9E /* VegitableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1672B57CC2E009EBA9E /* VegitableStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		DF94D15A2B57BFD6009EBA9E /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		DF94D15D2B57C055009EBA9E /* OrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCell.swift; sourceTree = "<group>"; };
 		DF94D15F2B57C0EE009EBA9E /* ChoiceVegitableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceVegitableViewController.swift; path = "../../../../../../../.Trash/UIKit-Prototype-LAB1 오후 4.52.09/Kiosk/Kiosk/Controller/ChoiceVegitableViewController.swift"; sourceTree = "<group>"; };
+		DF94D1612B57C324009EBA9E /* SandwichButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SandwichButton.swift; path = "../../../../_UIKit-Prototype-LAB1/Kiosk/Kiosk/View/SandwichButton.swift"; sourceTree = "<group>"; };
+		DF94D1632B57C87A009EBA9E /* VegitableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegitableCell.swift; sourceTree = "<group>"; };
+		DF94D1652B57CB5C009EBA9E /* VegitableModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VegitableModel.swift; path = Kiosk/View/Cell/VegitableModel.swift; sourceTree = SOURCE_ROOT; };
+		DF94D1672B57CC2E009EBA9E /* VegitableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VegitableStore.swift; path = Kiosk/View/Cell/VegitableStore.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,8 @@
 		DF94D1212B57561D009EBA9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DF94D1652B57CB5C009EBA9E /* VegitableModel.swift */,
+				DF94D1672B57CC2E009EBA9E /* VegitableStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,6 +119,7 @@
 				DF94D15A2B57BFD6009EBA9E /* SideBar.swift */,
 				DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */,
 				DF94D1342B576861009EBA9E /* PaymentButton.swift */,
+				DF94D1612B57C324009EBA9E /* SandwichButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -147,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				DF94D15D2B57C055009EBA9E /* OrderListCell.swift */,
+				DF94D1632B57C87A009EBA9E /* VegitableCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -222,7 +234,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */,
+				DF94D1662B57CB5C009EBA9E /* VegitableModel.swift in Sources */,
 				DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */,
+				DF94D1682B57CC2E009EBA9E /* VegitableStore.swift in Sources */,
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
 				DF94D1602B57C0EE009EBA9E /* ChoiceVegitableViewController.swift in Sources */,
 				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
@@ -231,10 +245,12 @@
 				DF94D1572B57BF3F009EBA9E /* CommonOrderViewController.swift in Sources */,
 				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D15E2B57C055009EBA9E /* OrderListCell.swift in Sources */,
+				DF94D1622B57C324009EBA9E /* SandwichButton.swift in Sources */,
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
 				DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */,
 				DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */,
+				DF94D1642B57C87A009EBA9E /* VegitableCell.swift in Sources */,
 				DF94D1272B5756B9009EBA9E /* CustomNavigationBar.swift in Sources */,
 				DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */,
 			);
