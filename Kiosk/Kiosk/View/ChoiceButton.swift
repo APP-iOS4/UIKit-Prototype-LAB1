@@ -26,8 +26,7 @@ class ChoiceButton: UIView {
             }
         }
     }
-    
-    
+
     let buttonLabel: UILabel = UILabel()
     let containerView: UIView = UIView()
     let button: UIButton = UIButton()
@@ -38,7 +37,6 @@ class ChoiceButton: UIView {
         containerView.layer.borderColor = UIColor.black.withAlphaComponent(0.1).cgColor
         containerView.layer.borderWidth = 4
         containerView.layer.cornerRadius = 15
-        
         
         buttonLabel.textColor = .black
         buttonLabel.textAlignment = .center
