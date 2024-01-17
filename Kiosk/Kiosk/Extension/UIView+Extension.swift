@@ -14,4 +14,15 @@ extension UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(view)
     }
+    
+    // 모든 엣지에 대한 오토레이아웃
+    func constraintEdge(_ targetView: UIView) {
+        NSLayoutConstraint.activate([
+            self.leadingAnchor.constraint(equalTo: targetView.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: targetView.trailingAnchor),
+            self.topAnchor.constraint(equalTo: targetView.topAnchor),
+            self.bottomAnchor.constraint(equalTo: targetView.bottomAnchor),
+            
+        ])
+    }
 }

@@ -26,7 +26,7 @@ class ChoiceButton: UIView {
             }
         }
     }
-    
+
     let buttonLabel: UILabel = UILabel()
     let containerView: UIView = UIView()
     let button: UIButton = UIButton()

@@ -32,22 +32,25 @@ class CustomNavigationBar: UIView {
         let backButton: UIButton = {
             let backButton = UIButton(type: .custom)
             backButton.setImage(.init(systemName: "chevron.backward"), for: .normal)
+            backButton.setPreferredSymbolConfiguration(.init(pointSize: 35, weight: .regular, scale: .default), forImageIn: .normal)
             backButton.tintColor = .init(named: "mainOrange")
             backButton.addTarget(delegate, action: #selector(didTapBackbutton), for: .touchUpInside)
             return backButton
         }()
         
         let homeButton: UIButton = {
-            let backButton = UIButton()
-            backButton.setImage(.init(systemName: "house"), for: .normal)
-            backButton.tintColor = .white
-            backButton.addTarget(delegate, action: #selector(didTapHomebutton), for: .touchUpInside)
-            return backButton
+            let homeButton = UIButton()
+            homeButton.setImage(.init(systemName: "house"), for: .normal)
+            homeButton.setPreferredSymbolConfiguration(.init(pointSize: 35, weight: .regular, scale: .default), forImageIn: .normal)
+            homeButton.tintColor = .white
+            homeButton.addTarget(delegate, action: #selector(didTapHomebutton), for: .touchUpInside)
+            return homeButton
         }()
         
         let rightButton: UIButton = {
             let rightButton = UIButton()
             rightButton.setImage(.init(systemName: "cart"), for: .normal)
+            rightButton.setPreferredSymbolConfiguration(.init(pointSize: 35, weight: .regular, scale: .default), forImageIn: .normal)
             rightButton.tintColor = .init(named: "mainOrange")
             rightButton.addTarget(delegate, action: #selector(didTapRightButton), for: .touchUpInside)
             return rightButton
