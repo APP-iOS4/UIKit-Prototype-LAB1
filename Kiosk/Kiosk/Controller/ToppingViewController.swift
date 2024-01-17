@@ -13,6 +13,8 @@ class ToppingViewController: CommonViewController {
     var cheeseCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let cheeseButton = SandwichButton()
     
+    var cheeseLabel = UILabel()
+    
     var screenWidth = 0.0
     var screenHeight = 0.0
     
@@ -20,6 +22,14 @@ class ToppingViewController: CommonViewController {
         super.setupView()
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
+        
+        cheeseLabel = {
+            let label = UILabel()
+            label.text = "치즈 선택"
+            label.textAlignment = .center
+            label.font = .systemFont(ofSize: 20)
+            return label
+        }()
         
         cheeseCollectionView = {
             let collectionViewLayout = UICollectionViewFlowLayout()
@@ -34,7 +44,7 @@ class ToppingViewController: CommonViewController {
         }()
         
         customNavigationBar.delegate = self
-        customNavigationBar.title = "타이틀 테스트"
+        customNavigationBar.title = "토핑 테스트"
         cheeseCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(cheeseCollectionView)
         
