@@ -19,6 +19,14 @@ class CustomNavigationBar: UIView {
         }
     }
     
+    var attributedTitle: NSAttributedString? = nil {
+        didSet {
+            titleLabel.attributedText = attributedTitle
+        }
+    }
+    
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         

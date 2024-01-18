@@ -34,15 +34,42 @@ class ThumbnailView: UIView {
                 containerViewBottomAnchorConstraint = containerView.bottomAnchor.constraint(equalTo: highlightTitleLabel.bottomAnchor, constant: 26)
                 containerViewBottomAnchorConstraint?.isActive = true
             }
-//            layoutIfNeeded()
+        }
+    }
+    
+    // 셀이 선택 되었나?
+    var isSelect: Bool = false {
+        didSet {
+            if isSelect {
+                containerView.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                containerView.layer.borderWidth = 4
+            } else {
+                containerView.layer.borderWidth = 0
+            }
+            selectImageView.isHidden.toggle()
+        }
+    }
+    
+    // 이미지 에셋의 이미지를 가져와서 이미지뷰 이미지 수정
+    var assetImage: String = "" {
+        didSet {
+            thumbnailImageView.image = UIImage(named: "\(assetImage)")
         }
     }
     
     let containerView: UIView = UIView()
-    let vegitableImageView: UIImageView = UIImageView()
+    let thumbnailImageView: UIImageView = UIImageView()
     let titleLabel = UILabel()
     let subTitleLabel = UILabel()
     let highlightTitleLabel = UILabel()
+    let selectImageView: UIImageView = {
+        let selectImageView = UIImageView()
+        selectImageView.image = UIImage(systemName: "checkmark.square.fill")
+        selectImageView.tintColor = .init(named: "mainGreen")
+        selectImageView.contentMode = .scaleAspectFit
+        selectImageView.isHidden = true
+        return selectImageView
+    }()
     
     var containerViewBottomAnchorConstraint: NSLayoutConstraint?
     
@@ -54,8 +81,7 @@ class ThumbnailView: UIView {
         containerViewBottomAnchorConstraint = containerView.bottomAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 26)
         
         containerView.backgroundColor = .white
-        vegitableImageView.contentMode = .scaleAspectFit
-        vegitableImageView.image = UIImage(named: "sample")
+        thumbnailImageView.contentMode = .scaleAspectFit
         //        vegitableImageView.backgroundColor = .black // 이미지뷰 사이즈가 유동적으로 변경되는지 확인하기 위한 배경색
         
         titleLabel.textColor = .black
@@ -74,10 +100,11 @@ class ThumbnailView: UIView {
         highlightTitleLabel.sizeToFit()
         
         customAddSubView(containerView)
-        containerView.customAddSubView(vegitableImageView)
+        containerView.customAddSubView(thumbnailImageView)
         containerView.customAddSubView(titleLabel)
         containerView.customAddSubView(subTitleLabel)
         containerView.customAddSubView(highlightTitleLabel)
+        containerView.customAddSubView(selectImageView)
         
         containerViewBottomAnchorConstraint?.isActive = true
         
@@ -86,14 +113,14 @@ class ThumbnailView: UIView {
             containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             containerView.topAnchor.constraint(equalTo: self.topAnchor),
             
-            vegitableImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 30),
-            vegitableImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 45),
-            vegitableImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -45),
-            vegitableImageView.heightAnchor.constraint(equalTo: vegitableImageView.widthAnchor, multiplier: 40.0 / 57.0),
+            thumbnailImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 30),
+            thumbnailImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 45),
+            thumbnailImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -45),
+            thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 40.0 / 57.0),
             
             titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: vegitableImageView.bottomAnchor, constant: 33),
+            titleLabel.topAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor, constant: 33),
             
             subTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             subTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
@@ -102,6 +129,11 @@ class ThumbnailView: UIView {
             highlightTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             highlightTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             highlightTitleLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 10),
+            
+            selectImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
+            selectImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
+            selectImageView.widthAnchor.constraint(equalToConstant: 30),
+            selectImageView.heightAnchor.constraint(equalTo: selectImageView.widthAnchor),
         ])
         if !highlightTitle.isEmpty {
             NSLayoutConstraint.activate([
