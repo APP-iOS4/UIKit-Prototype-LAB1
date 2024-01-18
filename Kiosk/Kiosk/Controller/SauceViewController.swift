@@ -169,7 +169,7 @@ extension SauceViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = sauceCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
         
-        cell.sandwichImageView.image = UIImage(named: "card")
+//        cell.sandwichImageView.image = UIImage(named: "card")
         cell.sandwichTitle = sauceStore.sauces[indexPath.row].korName
         cell.sandwichEngTitle = sauceStore.sauces[indexPath.row].engName
         if let cal = sauceStore.sauces[indexPath.row].cal {
