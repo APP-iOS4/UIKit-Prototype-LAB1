@@ -33,7 +33,7 @@ class SandwichViewController: CommonViewController {
             return collectionView
         }()
         
-        customNavigationBar.title = "타이틀 테스트"
+        customNavigationBar.title = "샌드위치 선택"
         sandwichCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(sandwichCollectionView)
         
@@ -69,6 +69,12 @@ extension SandwichViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = sandwichCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
+        if indexPath.row < 9 {
+            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "m0" + String(indexPath.row + 1))
+        } else {
+            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "m" + String(indexPath.row + 1))
+        }
+        
         
         cell.sandwichTitle = sandwichStore.sandwiches[indexPath.row].korName
 //        cell.

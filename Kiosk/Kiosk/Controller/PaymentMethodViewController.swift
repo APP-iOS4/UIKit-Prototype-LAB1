@@ -16,8 +16,6 @@ class PaymentMethodViewController: CommonOrderViewController {
     
     var whichButtonSeleted = 0 // 1: 카드, 2: 네이버, 3: 카카오, 4: 현금
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         customNavigationBar.title = "장바구니"
