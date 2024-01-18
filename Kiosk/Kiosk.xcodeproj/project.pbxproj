@@ -63,7 +63,7 @@
 		DF8F62B02B589FB7005DF8D1 /* ChoiceButtonProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceButtonProtocol.swift; sourceTree = "<group>"; };
 		DF8F62B32B589FC9005DF8D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF8F62B52B58B29D005DF8D1 /* ThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailView.swift; sourceTree = "<group>"; };
-		DF8F62B72B58C179005DF8D1 /* ChoiceVegitableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChoiceVegitableViewController.swift; path = Kiosk/Controller/ChoiceVegitableViewController.swift; sourceTree = "<group>"; };
+		DF8F62B72B58C179005DF8D1 /* ChoiceVegitableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceVegitableViewController.swift; sourceTree = "<group>"; };
 		DF94D10A2B5755E0009EBA9E /* Kiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiosk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DF94D1112B5755E0009EBA9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +103,6 @@
 		DF94D1012B5755E0009EBA9E = {
 			isa = PBXGroup;
 			children = (
-				DF8F62B72B58C179005DF8D1 /* ChoiceVegitableViewController.swift */,
 				DF94D10C2B5755E0009EBA9E /* Kiosk */,
 				DF94D10B2B5755E0009EBA9E /* Products */,
 				DF94D16B2B57D8CA009EBA9E /* Recovered References */,
@@ -170,6 +169,7 @@
 		DF94D1232B57562D009EBA9E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DF8F62B72B58C179005DF8D1 /* ChoiceVegitableViewController.swift */,
 				DF94D16C2B57D8ED009EBA9E /* ChoiceBreadViewController.swift */,
 				090580902B57A8CD005985B2 /* SandwichViewController.swift */,
 				090580922B57AD50005985B2 /* ToppingViewController.swift */,
