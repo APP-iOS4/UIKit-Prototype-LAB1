@@ -42,8 +42,8 @@ class SandwichViewController: CommonViewController {
         NSLayoutConstraint.activate([
             sandwichCollectionView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 40),
             sandwichCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            sandwichCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 40),
-            sandwichCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40)
+            sandwichCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            sandwichCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
         
         sandwichCollectionView.delegate = self
@@ -60,7 +60,7 @@ class SandwichViewController: CommonViewController {
 
 // MARK: 델리게이트, 데이터소스
 
-extension SandwichViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SandwichViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(sandwichStore.sandwiches.count)
@@ -85,5 +85,9 @@ extension SandwichViewController: UICollectionViewDelegate, UICollectionViewData
 //        cell.isSelect.toggle()
         navigationController?.pushViewController(ChoiceBreadViewController(), animated: true)
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     }
 }

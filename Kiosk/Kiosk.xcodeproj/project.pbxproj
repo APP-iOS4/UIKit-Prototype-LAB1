@@ -18,6 +18,18 @@
 		090580932B57AD50005985B2 /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580922B57AD50005985B2 /* ToppingViewController.swift */; };
 		D72969622B57705F00CBE78C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D72969642B57731900CBE78C /* BreadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72969632B57731900CBE78C /* BreadButton.swift */; };
+<<<<<<< Updated upstream
+=======
+		DF3F839F2B58C5F300B0EBBB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1292B57585A009EBA9E /* UIView+Extension.swift */; };
+		DF3F83A12B58C70B00B0EBBB /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */; };
+		DF3F83A22B58C71200B0EBBB /* CommonOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */; };
+		DF3F83A32B58C7B900B0EBBB /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1242B57564F009EBA9E /* CommonViewController.swift */; };
+		DF3F83A42B58C7E900B0EBBB /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */; };
+		DF3F83A52B58C80D00B0EBBB /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */; };
+		DF3F83A62B58C88800B0EBBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */; };
+		DF3F83A72B58C89200B0EBBB /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D12E2B575EF6009EBA9E /* CartViewController.swift */; };
+		DF3F83A92B58DE3100B0EBBB /* BreadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */; };
+>>>>>>> Stashed changes
 		DF8F62A82B589F70005DF8D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */; };
 		DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */; };
 		DF8F62B12B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */; };
@@ -57,6 +69,7 @@
 		090580902B57A8CD005985B2 /* SandwichViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandwichViewController.swift; sourceTree = "<group>"; };
 		090580922B57AD50005985B2 /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		D72969632B57731900CBE78C /* BreadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadButton.swift; sourceTree = "<group>"; };
+		DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadCell.swift; sourceTree = "<group>"; };
 		DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarProtocol.swift; sourceTree = "<group>"; };
@@ -205,6 +218,7 @@
 			children = (
 				DF94D15D2B57C055009EBA9E /* OrderListCell.swift */,
 				DF94D1632B57C87A009EBA9E /* VegitableCell.swift */,
+				DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -317,8 +331,12 @@
 				D72969642B57731900CBE78C /* BreadButton.swift in Sources */,
 				DF94D1572B57BF3F009EBA9E /* CommonOrderViewController.swift in Sources */,
 				DF94D15E2B57C055009EBA9E /* OrderListCell.swift in Sources */,
+<<<<<<< Updated upstream
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
+=======
+				DF3F83A92B58DE3100B0EBBB /* BreadCell.swift in Sources */,
+>>>>>>> Stashed changes
 				DF8F62B62B58B29D005DF8D1 /* ThumbnailView.swift in Sources */,
 				DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */,
 				DF94D1752B57D985009EBA9E /* BreadStrct.swift in Sources */,

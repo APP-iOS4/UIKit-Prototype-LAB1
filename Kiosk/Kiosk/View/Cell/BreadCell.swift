@@ -1,48 +1,45 @@
 //
-//  Vegitable.swift
+//  BreadCell.swift
 //  Kiosk
 //
-//  Created by 박상현 on 1/17/24.
+//  Created by 박상현 on 1/18/24.
 //
 
 import UIKit
 
-class VegitableCell: UICollectionViewCell {
-    
-    static let identifier: String = "vegitableCell"
+class BreadCell: UICollectionViewCell {
+    static let identifier: String = "breadCell"
     
     let thumbnailView = ThumbnailView()
     
-    var vegitableTitle: String = "" {
+    var breadTitle: String = "" {
         didSet {
-            thumbnailView.title = vegitableTitle
+            thumbnailView.title = breadTitle
         }
     }
     
-    var vegitableEngTitle: String = "" {
+    var breadEngTitle: String = "" {
         didSet {
-            thumbnailView.subTitle = vegitableEngTitle
+            thumbnailView.subTitle = breadEngTitle
         }
     }
     
-    var vegitableCalTitle: String = "" {
+    var breadCalTitle: String = "" {
         didSet {
-            thumbnailView.highlightTitle = vegitableCalTitle
+            thumbnailView.highlightTitle = breadCalTitle
         }
     }
-        
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         customAddSubView(thumbnailView)
         thumbnailView.constraintEdge(self)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
-
-
-
