@@ -31,6 +31,11 @@
 
 세부적인 디자인 통일화.
 <br/><br/>
-## 원래 목표 이미지
+## 원래 목표
 <img width="1327" alt="스크린샷 2024-01-18 오전 9 51 12" src="https://github.com/APP-iOS4/UIKit-Prototype-LAB1/assets/76551806/defc68ec-9bda-4a49-a8a5-c90b1f12b35d">
+<br/>
+- 피그마 실행 링크
+
+https://www.figma.com/proto/NaKflaCIHNvQWtIHme2uey/Subway-Kiosk?page-id=0%3A1&type=design&node-id=1-659&viewport=3141%2C1248%2C0.51&t=6qhLtwpU0K7pT49q-1&scaling=min-zoom&starting-point-node-id=1%3A659
+
 
