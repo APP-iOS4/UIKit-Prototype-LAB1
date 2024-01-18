@@ -9,6 +9,7 @@ import UIKit
 
 class SideBar: UIView {
     var tableView: UITableView = UITableView()
+    let sideBarButton: SideBarButton = SideBarButton()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,10 +34,23 @@ class SideBar: UIView {
         }()
         
         customAddSubView(containerView)
-        customAddSubView(tableView)
+        containerView.customAddSubView(tableView)
+        containerView.customAddSubView(sideBarButton)
         
         containerView.constraintEdge(self)
-        tableView.constraintEdge(containerView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: sideBarButton.topAnchor),
+            
+            sideBarButton.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            sideBarButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            sideBarButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            sideBarButton.heightAnchor.constraint(equalToConstant: 65)
+        ])
+        
     }
     
     required init?(coder: NSCoder) {

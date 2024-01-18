@@ -73,6 +73,10 @@ class ChoiceVegitableViewController: CommonOrderViewController {
             collectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
+        
+        
+        // 사이드바 버튼 설정
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: false)
     }
     
 }
