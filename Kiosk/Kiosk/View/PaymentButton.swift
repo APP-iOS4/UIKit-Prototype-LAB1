@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PaymentButton: UIView {
+class PaymentButton: UIButton {
 
     var paymentTitle: String = "" {
         didSet {
@@ -31,6 +31,7 @@ class PaymentButton: UIView {
         super.init(frame: frame)
         
         containerView.backgroundColor = .white
+        containerView.layer.cornerRadius = 15
         paymentImageView.contentMode = .scaleAspectFit
         paymentImageView.image = UIImage(named: "card")
         paymentLabel.textColor = .black
