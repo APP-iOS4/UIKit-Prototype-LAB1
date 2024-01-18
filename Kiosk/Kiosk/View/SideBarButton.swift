@@ -9,7 +9,7 @@ import UIKit
 
 class SideBarButton: UIView {
 
-    var delegate: ChoiceButtonProtocol?
+    var delegate: SideBarButtonProtocol?
     
     var isActive: Bool = false {
         didSet {
@@ -77,6 +77,6 @@ class SideBarButton: UIView {
     
     // 버튼 터치 이벤트 (델리게이트)
     @objc func didTapButton() {
-        delegate?.didTapButton()
+        delegate?.didTapSideBarButton()
     }
 }

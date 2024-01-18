@@ -80,7 +80,7 @@ class ChoiceVegitableViewController: CommonOrderViewController {
     }
     
     // 사이드바 버튼 클릭
-    override func didTapSideBarButton() {
+    override func didTapSideBarButtonOverride() {
         print("사이드바 버튼이 눌림")
     }
     
