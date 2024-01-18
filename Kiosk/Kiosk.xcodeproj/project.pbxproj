@@ -79,7 +79,6 @@
 		DF94D15A2B57BFD6009EBA9E /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		DF94D15D2B57C055009EBA9E /* OrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListCell.swift; sourceTree = "<group>"; };
 		DF94D15F2B57C0EE009EBA9E /* ChoiceVegitableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceVegitableViewController.swift; path = "../../../../../../../.Trash/UIKit-Prototype-LAB1 오후 4.52.09/Kiosk/Kiosk/Controller/ChoiceVegitableViewController.swift"; sourceTree = "<group>"; };
-		DF94D1612B57C324009EBA9E /* SandwichButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SandwichButton.swift; path = "../../../../_UIKit-Prototype-LAB1/Kiosk/Kiosk/View/SandwichButton.swift"; sourceTree = "<group>"; };
 		DF94D1632B57C87A009EBA9E /* VegitableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VegitableCell.swift; sourceTree = "<group>"; };
 		DF94D16C2B57D8ED009EBA9E /* ChoiceBreadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceBreadViewController.swift; sourceTree = "<group>"; };
 		DF94D16E2B57D96A009EBA9E /* VegitableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VegitableModel.swift; sourceTree = "<group>"; };
@@ -213,7 +212,6 @@
 		DF94D16B2B57D8CA009EBA9E /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				DF94D1612B57C324009EBA9E /* SandwichButton.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
