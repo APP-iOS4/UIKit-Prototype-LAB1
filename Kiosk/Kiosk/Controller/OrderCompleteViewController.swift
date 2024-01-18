@@ -106,5 +106,6 @@ class OrderCompleteViewController: UIViewController {
     
     @objc func didTapBackButton() {
         print("버튼 눌림")
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

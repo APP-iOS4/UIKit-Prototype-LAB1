@@ -84,5 +84,8 @@ extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionV
         return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigationController?.pushViewController(SauceViewController(), animated: true)
+    }
     
 }
