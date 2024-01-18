@@ -8,6 +8,7 @@
 import UIKit
 
 class BreadCell: UICollectionViewCell {
+    
     static let identifier: String = "breadCell"
     
     let thumbnailView = ThumbnailView()
@@ -30,9 +31,12 @@ class BreadCell: UICollectionViewCell {
         }
     }
     
+    let breadImageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        
         
         customAddSubView(thumbnailView)
         thumbnailView.constraintEdge(self)
