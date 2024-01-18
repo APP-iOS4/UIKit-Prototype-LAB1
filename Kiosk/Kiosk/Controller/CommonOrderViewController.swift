@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CommonOrderViewController: CommonViewController {
+class CommonOrderViewController: CommonViewController  {
 
     let sideBar = SideBar()
     
