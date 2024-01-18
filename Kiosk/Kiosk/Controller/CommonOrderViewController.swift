@@ -11,6 +11,7 @@ class CommonOrderViewController: CommonViewController  {
 
     let sideBar = SideBar()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +19,8 @@ class CommonOrderViewController: CommonViewController  {
     
     override func setupView() {
         super.setupView()
+        
+        
         
         view.customAddSubView(sideBar)
         

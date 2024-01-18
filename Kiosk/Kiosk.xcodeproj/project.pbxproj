@@ -27,6 +27,7 @@
 		DF3F83A62B58C88800B0EBBB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */; };
 		DF3F83A72B58C89200B0EBBB /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D12E2B575EF6009EBA9E /* CartViewController.swift */; };
 		DF3F83A92B58DE3100B0EBBB /* BreadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */; };
+		DF3F83AD2B58EA9300B0EBBB /* NavigationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83AC2B58EA9300B0EBBB /* NavigationStep.swift */; };
 		DF8F62A82B589F70005DF8D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */; };
 		DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */; };
 		DF8F62B12B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */; };
@@ -58,6 +59,7 @@
 		090580922B57AD50005985B2 /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		D72969632B57731900CBE78C /* BreadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadButton.swift; sourceTree = "<group>"; };
 		DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadCell.swift; sourceTree = "<group>"; };
+		DF3F83AC2B58EA9300B0EBBB /* NavigationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStep.swift; sourceTree = "<group>"; };
 		DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarProtocol.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				090580882B57A603005985B2 /* ToppingStore.swift */,
 				0905808A2B57A64C005985B2 /* SauceStore.swift */,
 				0905808C2B57A6BE005985B2 /* CookieStore.swift */,
+				DF3F83AC2B58EA9300B0EBBB /* NavigationStep.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */,
 				0905807D2B57848B005985B2 /* ComponentStruct.swift in Sources */,
 				DF8F62B22B589FB7005DF8D1 /* ChoiceButtonProtocol.swift in Sources */,
+				DF3F83AD2B58EA9300B0EBBB /* NavigationStep.swift in Sources */,
 				DF8F62B82B58C179005DF8D1 /* ChoiceVegitableViewController.swift in Sources */,
 				DF8F62B12B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift in Sources */,
 				D72969642B57731900CBE78C /* BreadButton.swift in Sources */,

@@ -30,6 +30,18 @@ class VegitableCell: UICollectionViewCell {
             thumbnailView.highlightTitle = vegitableCalTitle
         }
     }
+    
+    var vegitableImage: String = "" {
+        didSet {
+            thumbnailView.assetImage = vegitableImage
+        }
+    }
+    
+    var isSelect: Bool = false {
+        didSet {
+            thumbnailView.isSelect = isSelect
+        }
+    }
         
     override init(frame: CGRect) {
         super.init(frame: frame)
