@@ -179,6 +179,10 @@ extension SauceViewController: UICollectionViewDelegate, UICollectionViewDataSou
         
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        navigationController?.pushViewController(OrderCompleteViewController(), animated: true)
+    }
     
 }
 
