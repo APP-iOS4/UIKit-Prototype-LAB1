@@ -9,6 +9,8 @@ import UIKit
 
 class SideBarButton: UIView {
 
+    var delegate: ChoiceButtonProtocol?
+    
     var isActive: Bool = false {
         didSet {
             if isActive {
@@ -30,6 +32,7 @@ class SideBarButton: UIView {
         titleLabel.textAlignment = .center
         
         let button: UIButton = UIButton()
+        button.addTarget(delegate, action: #selector(didTapButton), for: .touchUpInside)
         
         containerView.backgroundColor = .black.withAlphaComponent(0.27)
         
@@ -72,4 +75,8 @@ class SideBarButton: UIView {
         containerView.backgroundColor = color
     }
     
+    // 버튼 터치 이벤트 (델리게이트)
+    @objc func didTapButton() {
+        delegate?.didTapButton()
+    }
 }

@@ -14,6 +14,7 @@ class SideBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        
         let containerView: UIView = {
             let containerView = UIView()
             containerView.backgroundColor = .init(named: "mainGreen")?.withAlphaComponent(0.65)
@@ -58,6 +59,7 @@ class SideBar: UIView {
     }
 }
 
+// MARK: - UITableView Delegate & DataSource
 extension SideBar: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7

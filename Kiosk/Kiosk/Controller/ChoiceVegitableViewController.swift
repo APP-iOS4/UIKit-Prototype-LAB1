@@ -79,6 +79,11 @@ class ChoiceVegitableViewController: CommonOrderViewController {
         sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: false)
     }
     
+    // 사이드바 버튼 클릭
+    override func didTapSideBarButton() {
+        print("사이드바 버튼이 눌림")
+    }
+    
 }
 
 extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
