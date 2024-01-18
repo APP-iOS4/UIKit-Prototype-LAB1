@@ -75,13 +75,9 @@ extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionV
 
         let collectionViewSize: CGSize = collectionView.frame.size
         let cellWidth: CGFloat = (collectionViewSize.width - 160) / 3
-<<<<<<< Updated upstream
-
-=======
         let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
->>>>>>> Stashed changes
         
-        return CGSize(width: cellWidth, height: 400)
+        return CGSize(width: cellWidth, height: cellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
