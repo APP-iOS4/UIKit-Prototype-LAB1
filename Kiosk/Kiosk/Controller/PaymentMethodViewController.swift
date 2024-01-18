@@ -14,6 +14,8 @@ class PaymentMethodViewController: CommonOrderViewController {
     var kakaoButton = PaymentButton()
     var cashButton = PaymentButton()
     
+    let uiView = UIView()
+    
     var whichButtonSeleted = 0 // 1: 카드, 2: 네이버, 3: 카카오, 4: 현금
     
     override func viewDidLoad() {
@@ -23,8 +25,9 @@ class PaymentMethodViewController: CommonOrderViewController {
     override func setupView() {
         super.setupView()
         let screenWidth = self.view.bounds.width
-        let screenHeight = self.view.bounds.height
-        
+//        let screenHeight = self.view.bounds.height
+        let sideBarWidth = sideBar.frame.width
+        let customNaviHeight = customNavigationBar.frame.height
         cardButton.paymentTitle = "카드"
         cardButton.paymentEngTitle = "Card"
         
@@ -44,13 +47,29 @@ class PaymentMethodViewController: CommonOrderViewController {
         self.view.customAddSubView(kakaoButton)
         self.view.customAddSubView(cashButton)
         
+//        print(screenWidth - customNaviHeight - 300)
+        
         NSLayoutConstraint.activate([
-            cardButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 100),
+            cardButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 200),
             cardButton.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 100),
+            cardButton.widthAnchor.constraint(equalToConstant: (screenWidth - sideBarWidth - 300) / 4),
+            cardButton.heightAnchor.constraint(equalTo: cardButton.containerView.heightAnchor),
+
+            naverButton.leadingAnchor.constraint(equalTo: cardButton.trailingAnchor, constant: 100),
+            naverButton.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 100),
+            naverButton.widthAnchor.constraint(equalToConstant: (screenWidth - sideBarWidth - 300) / 4),
+            naverButton.heightAnchor.constraint(equalTo: naverButton.containerView.heightAnchor),
             
-//            cardButton.widthAnchor.constraint(equalToConstant: sideBar.leadingAnchor / 2),
+            kakaoButton.topAnchor.constraint(equalTo: cardButton.bottomAnchor, constant: 20),
+            kakaoButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 200),
+            kakaoButton.widthAnchor.constraint(equalToConstant: (screenWidth - sideBarWidth - 300) / 4),
+            kakaoButton.heightAnchor.constraint(equalTo: kakaoButton.containerView.heightAnchor),
             
-//            cardButton.heightAnchor.constraint(equalToConstant: <#T##CGFloat#>),
+            cashButton.topAnchor.constraint(equalTo: naverButton.bottomAnchor, constant: 20),
+            cashButton.leadingAnchor.constraint(equalTo: kakaoButton.trailingAnchor, constant: 100),
+            cashButton.widthAnchor.constraint(equalToConstant: (screenWidth - sideBarWidth - 300) / 4),
+            cashButton.heightAnchor.constraint(equalTo: cashButton.containerView.heightAnchor),
+            
             
         ])
         
