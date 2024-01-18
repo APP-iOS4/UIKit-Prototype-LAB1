@@ -18,7 +18,10 @@
 		090580932B57AD50005985B2 /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580922B57AD50005985B2 /* ToppingViewController.swift */; };
 		D72969622B57705F00CBE78C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D72969642B57731900CBE78C /* BreadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72969632B57731900CBE78C /* BreadButton.swift */; };
-		DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10D2B5755E0009EBA9E /* AppDelegate.swift */; };
+		DF8F62A82B589F70005DF8D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */; };
+		DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */; };
+		DF8F62B12B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */; };
+		DF8F62B22B589FB7005DF8D1 /* ChoiceButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62B02B589FB7005DF8D1 /* ChoiceButtonProtocol.swift */; };
 		DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */; };
 		DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1112B5755E0009EBA9E /* ViewController.swift */; };
 		DF94D1172B5755E2009EBA9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF94D1162B5755E2009EBA9E /* Assets.xcassets */; };
@@ -26,11 +29,8 @@
 		DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1242B57564F009EBA9E /* CommonViewController.swift */; };
 		DF94D1272B5756B9009EBA9E /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */; };
 		DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1292B57585A009EBA9E /* UIView+Extension.swift */; };
-		DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D12C2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift */; };
 		DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D12E2B575EF6009EBA9E /* CartViewController.swift */; };
 		DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */; };
-		DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1322B576690009EBA9E /* ChoiceButtonProtocol.swift */; };
-		DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1342B576861009EBA9E /* PaymentButton.swift */; };
 		DF94D1572B57BF3F009EBA9E /* CommonOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */; };
 		DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */; };
 		DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D15A2B57BFD6009EBA9E /* SideBar.swift */; };
@@ -56,21 +56,21 @@
 		090580902B57A8CD005985B2 /* SandwichViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandwichViewController.swift; sourceTree = "<group>"; };
 		090580922B57AD50005985B2 /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		D72969632B57731900CBE78C /* BreadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadButton.swift; sourceTree = "<group>"; };
+		DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
+		DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarProtocol.swift; sourceTree = "<group>"; };
+		DF8F62B02B589FB7005DF8D1 /* ChoiceButtonProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoiceButtonProtocol.swift; sourceTree = "<group>"; };
+		DF8F62B32B589FC9005DF8D1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF94D10A2B5755E0009EBA9E /* Kiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kiosk.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF94D10D2B5755E0009EBA9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DF94D1112B5755E0009EBA9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DF94D1162B5755E2009EBA9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF94D1192B5755E2009EBA9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DF94D11B2B5755E2009EBA9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF94D1242B57564F009EBA9E /* CommonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewController.swift; sourceTree = "<group>"; };
 		DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		DF94D1292B57585A009EBA9E /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		DF94D12C2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarProtocol.swift; sourceTree = "<group>"; };
 		DF94D12E2B575EF6009EBA9E /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButton.swift; sourceTree = "<group>"; };
-		DF94D1322B576690009EBA9E /* ChoiceButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceButtonProtocol.swift; sourceTree = "<group>"; };
-		DF94D1342B576861009EBA9E /* PaymentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		DF94D1562B57BF3F009EBA9E /* CommonOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonOrderViewController.swift; sourceTree = "<group>"; };
 		DF94D1582B57BF62009EBA9E /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
 		DF94D15A2B57BFD6009EBA9E /* SideBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
@@ -122,11 +122,11 @@
 				DF94D1232B57562D009EBA9E /* Controller */,
 				DF94D1222B575623009EBA9E /* View */,
 				DF94D1212B57561D009EBA9E /* Model */,
-				DF94D10D2B5755E0009EBA9E /* AppDelegate.swift */,
 				DF94D10F2B5755E0009EBA9E /* SceneDelegate.swift */,
+				DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */,
 				DF94D1162B5755E2009EBA9E /* Assets.xcassets */,
 				DF94D1182B5755E2009EBA9E /* LaunchScreen.storyboard */,
-				DF94D11B2B5755E2009EBA9E /* Info.plist */,
+				DF8F62B32B589FC9005DF8D1 /* Info.plist */,
 			);
 			path = Kiosk;
 			sourceTree = "<group>";
@@ -153,8 +153,8 @@
 			children = (
 				DF94D1262B5756B9009EBA9E /* CustomNavigationBar.swift */,
 				DF94D1302B5762E0009EBA9E /* ChoiceButton.swift */,
-				DF94D1342B576861009EBA9E /* PaymentButton.swift */,
 				D72969632B57731900CBE78C /* BreadButton.swift */,
+				DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */,
 				090580782B576FF0005985B2 /* SandwichButton.swift */,
 				DF94D15C2B57C041009EBA9E /* Cell */,
 				DF94D15A2B57BFD6009EBA9E /* SideBar.swift */,
@@ -190,8 +190,8 @@
 		DF94D12B2B5758EA009EBA9E /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				DF94D12C2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift */,
-				DF94D1322B576690009EBA9E /* ChoiceButtonProtocol.swift */,
+				DF8F62B02B589FB7005DF8D1 /* ChoiceButtonProtocol.swift */,
+				DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -285,7 +285,6 @@
 			files = (
 				DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */,
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
-				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
 				0905808B2B57A64C005985B2 /* SauceStore.swift in Sources */,
 				DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */,
 				090580872B57A522005985B2 /* CheeseStore.swift in Sources */,
@@ -294,34 +293,31 @@
 				090580792B576FF0005985B2 /* SandwichButton.swift in Sources */,
 				090580892B57A603005985B2 /* ToppingStore.swift in Sources */,
 				090580912B57A8CD005985B2 /* SandwichViewController.swift in Sources */,
-				DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */,
 				EF9C20A02B57C3EB00673F66 /* SauceViewController.swift in Sources */,
-				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D1712B57D96A009EBA9E /* VegitableStore.swift in Sources */,
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
-				DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */,
 				DF94D1272B5756B9009EBA9E /* CustomNavigationBar.swift in Sources */,
 				0905808D2B57A6BE005985B2 /* CookieStore.swift in Sources */,
 				090580812B578B48005985B2 /* SandwichStore.swift in Sources */,
 				DF94D1312B5762E0009EBA9E /* ChoiceButton.swift in Sources */,
+				DF8F62A82B589F70005DF8D1 /* AppDelegate.swift in Sources */,
+				DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */,
 				0905807D2B57848B005985B2 /* ComponentStruct.swift in Sources */,
 				DF94D1592B57BF62009EBA9E /* OrderCompleteViewController.swift in Sources */,
+				DF8F62B22B589FB7005DF8D1 /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D12A2B57585A009EBA9E /* UIView+Extension.swift in Sources */,
 				DF94D1122B5755E0009EBA9E /* ViewController.swift in Sources */,
 				DF94D1602B57C0EE009EBA9E /* ChoiceVegitableViewController.swift in Sources */,
-				DF94D1352B576861009EBA9E /* PaymentButton.swift in Sources */,
 				DF94D1252B57564F009EBA9E /* CommonViewController.swift in Sources */,
+				DF8F62B12B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift in Sources */,
 				D72969642B57731900CBE78C /* BreadButton.swift in Sources */,
-				DF94D10E2B5755E0009EBA9E /* AppDelegate.swift in Sources */,
 				DF94D1572B57BF3F009EBA9E /* CommonOrderViewController.swift in Sources */,
-				DF94D1332B576690009EBA9E /* ChoiceButtonProtocol.swift in Sources */,
 				DF94D15E2B57C055009EBA9E /* OrderListCell.swift in Sources */,
 				DF94D12F2B575EF6009EBA9E /* CartViewController.swift in Sources */,
 				DF94D1102B5755E0009EBA9E /* SceneDelegate.swift in Sources */,
 				DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */,
 				DF94D1752B57D985009EBA9E /* BreadStrct.swift in Sources */,
-				DF94D12D2B5758FA009EBA9E /* CustomNavigationBarProtocol.swift in Sources */,
 				DF94D16D2B57D8ED009EBA9E /* ChoiceBreadViewController.swift in Sources */,
 				DF94D1702B57D96A009EBA9E /* VegitableModel.swift in Sources */,
 				DF94D1642B57C87A009EBA9E /* VegitableCell.swift in Sources */,
