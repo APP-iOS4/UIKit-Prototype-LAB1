@@ -67,7 +67,7 @@ extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionV
         let targetVegitable = vegitableStore.vegitableArray[indexPath.row]
         cell.vegitableTitle = "\(targetVegitable.name)"
         cell.vegitableEngTitle = "\(targetVegitable.engName)"
-        cell.vegitableCalTitle = "\(targetVegitable.cal)"
+//        cell.vegitableCalTitle = "\(targetVegitable.cal)"
         return cell
     }
     
@@ -75,7 +75,7 @@ extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionV
 
         let collectionViewSize: CGSize = collectionView.frame.size
         let cellWidth: CGFloat = (collectionViewSize.width - 160) / 3
-        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth)
+        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
         
         return CGSize(width: cellWidth, height: cellHeight)
     }

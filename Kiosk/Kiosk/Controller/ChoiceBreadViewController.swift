@@ -40,6 +40,7 @@ class ChoiceBreadViewController: CommonViewController {
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
                 collectionView.translatesAutoresizingMaskIntoConstraints = false
                 collectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
+            collectionView.register(BreadCell.self, forCellWithReuseIdentifier: BreadCell.identifier)
                 return collectionView
             }()
 
@@ -139,26 +140,44 @@ class ChoiceBreadViewController: CommonViewController {
     }
     
 }
-extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return breadStore.bread.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell =             choiceBreadCollectionView.dequeueReusableCell(withReuseIdentifier: "BreadButton", for: indexPath) as! BreadButton
+//        let cell =             choiceBreadCollectionView.dequeueReusableCell(withReuseIdentifier: "BreadButton", for: indexPath) as! BreadButton
+//        
+//        cell.breadImageView.image = UIImage(named: "\(breadStore.bread[indexPath.row].breadEngTitle)")
+//        cell.breadTitle = breadStore.bread[indexPath.row].breadTitle
+//        cell.breadEngTitle = breadStore.bread[indexPath.row].breadEngTitle
+//        cell.breadKcalTitle = String(breadStore.bread[indexPath.row].breadKcalTitle)
+//        
+//        return cell
         
-        cell.breadImageView.image = UIImage(named: "\(breadStore.bread[indexPath.row].breadEngTitle)")
-        cell.breadTitle = breadStore.bread[indexPath.row].breadTitle
-        cell.breadEngTitle = breadStore.bread[indexPath.row].breadEngTitle
-        cell.breadKcalTitle = String(breadStore.bread[indexPath.row].breadKcalTitle)
+        guard let cell = choiceBreadCollectionView.dequeueReusableCell(withReuseIdentifier: BreadCell.identifier, for: indexPath) as? BreadCell else { return UICollectionViewCell() }
+        
+        cell.breadTitle = "플랫브레드"
+        cell.breadEngTitle = "Flat Bread"
+        cell.breadCalTitle = "200 kcal"
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = choiceBreadCollectionView.cellForItem(at: indexPath) as! BreadButton
+        let cell = choiceBreadCollectionView.cellForItem(at: indexPath) as! BreadCell
 //        cell.isSelect.toggle()
         navigationController?.pushViewController(ToppingViewController(), animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let collectionViewSize: CGSize = collectionView.frame.size
+        let cellWidth: CGFloat = (collectionViewSize.width - 200) / 4
+        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: true)
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+        
     }
 }
