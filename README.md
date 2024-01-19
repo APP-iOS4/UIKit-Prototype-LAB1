@@ -58,6 +58,8 @@
 
 
 ## 📱 실행 화면
+![Simulator Screen Recording - iPad Pro (12 9-inch) (6th generation) - 2024-01-19 at 16 32 06](https://github.com/APP-iOS4/UIKit-Prototype-LAB1/assets/103730885/05e4deea-7143-408a-b796-633f9ac4bd53)
+
 ![scene1](https://github.com/APP-iOS4/UIKit-Prototype-LAB1/assets/76551806/c98a94e6-fec1-41da-9b08-8a4cff8d4dd7)
 ![scene2](https://github.com/APP-iOS4/UIKit-Prototype-LAB1/assets/76551806/ac2c1762-67de-4401-980d-dec2bfb4815d)
 ![scene3](https://github.com/APP-iOS4/UIKit-Prototype-LAB1/assets/76551806/6af6795a-c645-44b2-9c78-3c91544128ec)
