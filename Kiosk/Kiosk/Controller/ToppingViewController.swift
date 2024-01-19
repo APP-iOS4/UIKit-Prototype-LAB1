@@ -136,7 +136,14 @@ class ToppingViewController: CommonOrderViewController {
         
     }
     
-    override func viewDidLoad() { super.viewDidLoad() }
+    override func viewDidLoad() { 
+        super.viewDidLoad()
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: false)
+    }
+    
+    override func didTapSideBarButtonOverride() {
+        navigationController?.pushViewController(ChoiceVegitableViewController(), animated: true)
+    }
     
 }
 
