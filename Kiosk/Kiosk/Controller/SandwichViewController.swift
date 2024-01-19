@@ -33,7 +33,7 @@ class SandwichViewController: CommonViewController {
             return collectionView
         }()
         
-        customNavigationBar.title = "타이틀 테스트"
+//        customNavigationBar.title = "샌드위치 선택"
         sandwichCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(sandwichCollectionView)
         
@@ -70,8 +70,14 @@ extension SandwichViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = sandwichCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
         
-        cell.sandwichImageView.image = UIImage(named: "card")
+        if indexPath.row < 9 {
+            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "m0" + String(indexPath.row + 1))
+        } else {
+            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "m" + String(indexPath.row + 1))
+        }
+        
         cell.sandwichTitle = sandwichStore.sandwiches[indexPath.row].korName
+
         cell.sandwichEngTitle = sandwichStore.sandwiches[indexPath.row].engName
         if let cal = sandwichStore.sandwiches[indexPath.row].cal {
             cell.sandwichCalTitle = String(cal) + "kcal"
@@ -80,12 +86,21 @@ extension SandwichViewController: UICollectionViewDelegate, UICollectionViewData
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewSize: CGSize = collectionView.frame.size
+        let cellWidth: CGFloat = (collectionViewSize.width - 200) / 4
+        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = sandwichCollectionView.cellForItem(at: indexPath) as! SandwichButton
+//        let cell = sandwichCollectionView.cellForItem(at: indexPath) as! SandwichButton
 //        cell.isSelect.toggle()
         navigationController?.pushViewController(ChoiceBreadViewController(), animated: true)
         
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)

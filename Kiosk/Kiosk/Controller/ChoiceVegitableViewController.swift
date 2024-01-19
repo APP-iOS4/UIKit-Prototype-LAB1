@@ -19,6 +19,15 @@ class ChoiceVegitableViewController: CommonOrderViewController {
     override func setupView() {
         super.setupView()
         
+        currentStep = .choiceVegitable
+        
+        let scrollView: UIScrollView = {
+            let scrollView = UIScrollView()
+            return scrollView
+        }()
+        
+        let contentView: UIView = UIView()
+        
         let titleLabel: UILabel = {
             let titleLabel = UILabel()
             titleLabel.text = "야채 선택"
@@ -41,18 +50,38 @@ class ChoiceVegitableViewController: CommonOrderViewController {
             return collectionView
         }()
         
-        view.customAddSubView(titleLabel)
-        view.customAddSubView(collectionView)
+        
+        view.customAddSubView(scrollView)
+        scrollView.customAddSubView(contentView)
+        contentView.customAddSubView(titleLabel)
+        contentView.customAddSubView(collectionView)
+        contentView.constraintEdge(scrollView)
         
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 23),
-            titleLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 34),
+            scrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            
+            titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 23),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 34),
             
             collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 34),
-            collectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+            collectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
+        
+        
+        // 사이드바 버튼 설정
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: false)
+    }
+    
+    // 사이드바 버튼 클릭
+    override func didTapSideBarButtonOverride() {
+        print("사이드바 버튼이 눌림")
     }
     
 }
@@ -67,25 +96,38 @@ extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionV
         let targetVegitable = vegitableStore.vegitableArray[indexPath.row]
         cell.vegitableTitle = "\(targetVegitable.name)"
         cell.vegitableEngTitle = "\(targetVegitable.engName)"
-//        cell.vegitableCalTitle = "\(targetVegitable.cal)"
+        cell.vegitableCalTitle = "\(targetVegitable.cal)"
+        cell.vegitableImage = "\(targetVegitable.image)"
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        let collectionViewSize: CGSize = collectionView.frame.size
-        let cellWidth: CGFloat = (collectionViewSize.width - 160) / 3
-        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
+        // 한줄에 표시할 데이터 셀 개수
+        let columns: Int = 3
+        // 셀의 여백
+        let cellMargin: Int = 40
+        // 셀의 행 개수
+        let cellRows: Int = vegitableStore.vegitableArray.count / columns
         
+        let collectionViewSize: CGSize = collectionView.frame.size
+        let cellWidth: CGFloat = (collectionViewSize.width - CGFloat(cellMargin * (columns + 1))) / CGFloat(columns)
+        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: true)
+        let collectionViewHeight: CGFloat = (cellHeight * CGFloat(cellRows)) + CGFloat(cellMargin * cellRows)
+
+        collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight).isActive = true
+        
+ 
         return CGSize(width: cellWidth, height: cellHeight)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
+        return UIEdgeInsets(top: 0, left: 40, bottom: 40, right: 40)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(SauceViewController(), animated: true)
+        //navigationController?.pushViewController(SauceViewController(), animated: true)
+        guard let cell = collectionView.cellForItem(at: indexPath) as? VegitableCell else { return }
+        cell.isSelect.toggle()
     }
     
 }

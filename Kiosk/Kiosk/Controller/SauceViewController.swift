@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SauceViewController: CommonViewController {
+class SauceViewController: CommonOrderViewController {
 
     let sauceStore = SauceStore()
     let cookieStore = CookieStore()
@@ -28,8 +28,34 @@ class SauceViewController: CommonViewController {
     var screenWidth = 0.0
     var screenHeight = 0.0
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     override func setupView() {
         super.setupView()
+        
+        // scrollView
+        let scrollView = {
+            let scrollView = UIScrollView()
+            scrollView.backgroundColor = .cyan
+            scrollView.contentSize = CGSize(width: 1000, height: 3000)
+            scrollView.translatesAutoresizingMaskIntoConstraints = false
+            return scrollView
+        }()
+        
+        self.view.addSubview(scrollView)
+        
+        // contentView
+        let contentView = {
+            let contentView = UIView()
+            contentView.translatesAutoresizingMaskIntoConstraints = false
+            return contentView
+        }()
+        
+        scrollView.addSubview(contentView)
+        
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
         
@@ -114,16 +140,25 @@ class SauceViewController: CommonViewController {
 //        cookieLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            sauceLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 34),
-            sauceLabel.bottomAnchor.constraint(equalTo: sauceCollectionView.topAnchor, constant: -10),
-            sauceLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 23),
-            sauceLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40),
+            scrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor),
             
-            sauceCollectionView.topAnchor.constraint(equalTo: sauceLabel.bottomAnchor, constant: 25),
-            sauceCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            sauceCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 40),
-            sauceCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40),
-            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+//            sauceLabel.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 34),
+//            sauceLabel.bottomAnchor.constraint(equalTo: sauceCollectionView.topAnchor, constant: -10),
+//            sauceLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 23),
+//            sauceLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40),
+//            
+//            sauceCollectionView.topAnchor.constraint(equalTo: sauceLabel.bottomAnchor, constant: 25),
+//            sauceCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+//            sauceCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 40),
+//            sauceCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40),
+//            
 //            setLabel.topAnchor.constraint(equalTo: sauceCollectionView.bottomAnchor, constant: 34),
 //            setLabel.bottomAnchor.constraint(equalTo: cookieLabel.topAnchor, constant: -11),
 //            setLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 23),
@@ -142,7 +177,7 @@ class SauceViewController: CommonViewController {
 //            cookieLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
 //            cookieLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 23),
 //            cookieLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -40),
-//            
+//
         ])
         
         
@@ -152,11 +187,6 @@ class SauceViewController: CommonViewController {
         
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-
 }
 
 extension SauceViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -169,7 +199,7 @@ extension SauceViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = sauceCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
         
-        cell.sandwichImageView.image = UIImage(named: "card")
+//        cell.sandwichImageView.image = UIImage(named: "card")
         cell.sandwichTitle = sauceStore.sauces[indexPath.row].korName
         cell.sandwichEngTitle = sauceStore.sauces[indexPath.row].engName
         if let cal = sauceStore.sauces[indexPath.row].cal {

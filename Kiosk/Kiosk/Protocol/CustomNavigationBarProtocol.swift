@@ -8,7 +8,7 @@
 import Foundation
 
 // 커스텀 네비게이션바 프로토콜
-protocol CustomNavigationBarProtocol {
+@objc protocol CustomNavigationBarProtocol {
     // 홈버튼 눌렀을때
     func didTapHomeButton()
     // 오른쪽 버튼 눌렀을때

@@ -25,6 +25,7 @@ class ChoiceBreadViewController: CommonViewController {
     let choiceToastingLabel = UILabel()
     let choiceBreadLabel = UILabel()
     
+    
     override func setupView() {
         super.setupView()
         
@@ -32,21 +33,22 @@ class ChoiceBreadViewController: CommonViewController {
         screenHeight = self.view.bounds.height
         
         choiceBreadCollectionView = {
+            
             let collectionViewLayout = UICollectionViewFlowLayout()
-            collectionViewLayout.itemSize = CGSize(width: screenWidth / 5.0, height: screenHeight / 3.0)
+            collectionViewLayout.itemSize = CGSize(width: screenWidth / 4.0, height: screenWidth / 3.0)
             collectionViewLayout.scrollDirection = .vertical
             collectionViewLayout.minimumLineSpacing = 80
             collectionViewLayout.minimumInteritemSpacing = 10
+            choiceBreadCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+            
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
-                collectionView.translatesAutoresizingMaskIntoConstraints = false
-                collectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            collectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
             collectionView.register(BreadCell.self, forCellWithReuseIdentifier: BreadCell.identifier)
-                return collectionView
-            }()
-
+            return collectionView
+        }()
         
         customNavigationBar.title = "빵 선택"
-        
         choiceBreadCollectionView.backgroundColor = .systemGray6
         
         choiceCmLabel.text = "사이즈 선택"
@@ -125,7 +127,8 @@ class ChoiceBreadViewController: CommonViewController {
             choiceBreadCollectionView.topAnchor.constraint(equalTo: choiceSelectedButton.bottomAnchor, constant: 90),
             choiceBreadCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             choiceBreadCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            choiceBreadCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            choiceBreadCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            
         ])
         
         choiceBreadCollectionView.delegate = self
@@ -147,37 +150,25 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell =             choiceBreadCollectionView.dequeueReusableCell(withReuseIdentifier: "BreadButton", for: indexPath) as! BreadButton
-//        
-//        cell.breadImageView.image = UIImage(named: "\(breadStore.bread[indexPath.row].breadEngTitle)")
-//        cell.breadTitle = breadStore.bread[indexPath.row].breadTitle
-//        cell.breadEngTitle = breadStore.bread[indexPath.row].breadEngTitle
-//        cell.breadKcalTitle = String(breadStore.bread[indexPath.row].breadKcalTitle)
-//        
-//        return cell
         
         guard let cell = choiceBreadCollectionView.dequeueReusableCell(withReuseIdentifier: BreadCell.identifier, for: indexPath) as? BreadCell else { return UICollectionViewCell() }
         
-        cell.breadTitle = "플랫브레드"
-        cell.breadEngTitle = "Flat Bread"
-        cell.breadCalTitle = "200 kcal"
+        cell.breadImageView.image = UIImage(named: "\(breadStore.bread[indexPath.row].breadEngTitle)")
+        cell.breadTitle = breadStore.bread[indexPath.row].breadTitle
+        cell.breadEngTitle = breadStore.bread[indexPath.row].breadEngTitle
+        cell.breadCalTitle = String(breadStore.bread[indexPath.row].breadKcalTitle)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = choiceBreadCollectionView.cellForItem(at: indexPath) as! BreadCell
-//        cell.isSelect.toggle()
+//                cell.isSelect.toggle()
         navigationController?.pushViewController(ToppingViewController(), animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let collectionViewSize: CGSize = collectionView.frame.size
-        let cellWidth: CGFloat = (collectionViewSize.width - 200) / 4
-        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: true)
-        
-        return CGSize(width: cellWidth, height: cellHeight)
-        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     }
+
 }

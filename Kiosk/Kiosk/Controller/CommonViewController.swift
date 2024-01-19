@@ -10,6 +10,15 @@ import UIKit
 class CommonViewController: UIViewController {
     
     let customNavigationBar = CustomNavigationBar()
+    
+    var currentStep: NavigationStep? = nil {
+        didSet {
+            if let currentStep = currentStep {
+                customNavigationBar.attributedTitle = currentStep.getTitleString()
+            }
+        }
+    }
+    
     lazy var safeArea = self.view.safeAreaLayoutGuide
 
     override func viewDidLoad() {
@@ -49,7 +58,5 @@ extension CommonViewController: CustomNavigationBarProtocol {
     
     func didTapBackButton() {
         navigationController?.popViewController(animated: true)
-    }
-    
-    
+    }    
 }

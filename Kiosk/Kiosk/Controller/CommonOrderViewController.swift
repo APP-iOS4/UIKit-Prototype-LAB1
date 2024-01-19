@@ -14,11 +14,11 @@ class CommonOrderViewController: CommonViewController  {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        sideBar.sideBarButton.delegate = self
     }
     
     override func setupView() {
         super.setupView()
-        
         view.customAddSubView(sideBar)
         
         NSLayoutConstraint.activate([
@@ -29,4 +29,17 @@ class CommonOrderViewController: CommonViewController  {
         ])
     }
 
+    // 사이드바 버튼 터치 함수 (하위 뷰컨트롤러에서 오버라이딩 하기 위한 함수)
+    func didTapSideBarButtonOverride() {
+        
+    }
+}
+
+// MARK: - 사이드바 버튼 델리게이트
+extension CommonOrderViewController: SideBarButtonProtocol {
+    func didTapSideBarButton() {
+        didTapSideBarButton()
+    }
+    
+    
 }
