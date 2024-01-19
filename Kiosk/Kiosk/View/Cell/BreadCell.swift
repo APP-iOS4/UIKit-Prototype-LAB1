@@ -31,6 +31,12 @@ class BreadCell: UICollectionViewCell {
         }
     }
     
+    var isSelect: Bool = false {
+        didSet {
+            thumbnailView.isSelect = isSelect
+        }
+    }
+    
     let breadImageView = UIImageView()
     
     override init(frame: CGRect) {
