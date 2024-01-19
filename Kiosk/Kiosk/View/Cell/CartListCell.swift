@@ -13,6 +13,15 @@ class CartListCell: UITableViewCell {
     
     let thumbnailView = ThumbnailView()
     let productLabel = UILabel()
+    var orderListView = UIStackView()
+    // 스택뷰 여백
+    let spacer: UIView = {
+        let spacer = UIView()
+        spacer.isUserInteractionEnabled = false
+        spacer.setContentHuggingPriority(.fittingSizeLevel, for: .vertical)
+        spacer.setContentCompressionResistancePriority(.fittingSizeLevel, for: .vertical)
+        return spacer
+    }()
     
     // MARK: 프로퍼티
     // 에셋 이미지
@@ -44,6 +53,24 @@ class CartListCell: UITableViewCell {
         }
     }
     
+    // 오더 상세 내역
+    var orderList: [String] = [] {
+        didSet {
+            orderList.forEach { order in
+                let orderLabel: UILabel = {
+                    let orderLabel = UILabel()
+                    orderLabel.text = "\(order)"
+                    orderLabel.textColor = .black
+                    orderLabel.font = .systemFont(ofSize: 24, weight: .regular)
+                    return orderLabel
+                }()
+                
+                self.orderListView.addArrangedSubview(orderLabel)
+            }
+            orderListView.addArrangedSubview(spacer)
+        }
+    }
+    
     
 
     
@@ -52,11 +79,21 @@ class CartListCell: UITableViewCell {
         let thumbnailViewWidth: CGFloat = 297
         let thumbnailViewHeight: CGFloat = ThumbnailView.getDummyHeight(thumbnailViewWidth, isHighlightTitle: true)
         
+        orderListView = {
+            let orderListView = UIStackView()
+            orderListView.axis = .vertical
+            orderListView.distribution = .fillEqually
+            orderListView.spacing = 10
+            orderListView.alignment = .top
+            return orderListView
+        }()
+        
         productLabel.font = .systemFont(ofSize: 30, weight: .regular)
         
         self.backgroundColor = .clear
         customAddSubView(productLabel)
         customAddSubView(thumbnailView)
+        customAddSubView(orderListView)
         
         NSLayoutConstraint.activate([
             productLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
@@ -67,8 +104,12 @@ class CartListCell: UITableViewCell {
             thumbnailView.topAnchor.constraint(equalTo: productLabel.bottomAnchor, constant: 15),
             thumbnailView.widthAnchor.constraint(equalToConstant: 297),
             thumbnailView.heightAnchor.constraint(equalToConstant: thumbnailViewHeight),
-            thumbnailView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
+            thumbnailView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10),
             
+            orderListView.leadingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: 25),
+            orderListView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
+            orderListView.topAnchor.constraint(equalTo: thumbnailView.topAnchor),
+            orderListView.bottomAnchor.constraint(equalTo: thumbnailView.bottomAnchor),
         ])
         
         self.selectionStyle = .none
@@ -85,4 +126,18 @@ class CartListCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        assetImage = ""
+        title = ""
+        subTitle = ""
+        highlightTitle = ""
+        orderList = []
+        orderListView.arrangedSubviews.forEach { view in
+            NSLayoutConstraint.deactivate(view.constraints)
+            self.orderListView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+    }
 }
