@@ -27,8 +27,7 @@ class OrderCheckViewController: CommonOrderViewController {
     
     override func setupView() {
         super.setupView()
-        
-        print("ordercheck")
+    
         
         customNavigationBar.title = "장바구니"
         sideBar.sideBarButton.setTitle("결제수단 선택", color: .init(named: "mainOrange"))
@@ -44,8 +43,7 @@ class OrderCheckViewController: CommonOrderViewController {
     }
     
     override func didTapSideBarButtonOverride() {
-//        super.didTapSideBarButtonOverride()
-        print("결제수단 터치")
+        navigationController?.pushViewController(PaymentMethodViewController(), animated: true)
     }
 }
 

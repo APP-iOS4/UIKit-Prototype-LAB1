@@ -9,5 +9,5 @@ import Foundation
 
 protocol ChoiceButtonProtocol {
     // 버튼이 눌렸을때
-    func didTapButton()
+    func didTapButton(_ sender: ChoiceButton)
 }

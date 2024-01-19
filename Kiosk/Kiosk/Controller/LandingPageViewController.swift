@@ -20,7 +20,7 @@ class LandingPageViewController: UIViewController {
     }
    
     func buildInterface() {
-        var safeArea = self.view.safeAreaLayoutGuide
+        let safeArea = self.view.safeAreaLayoutGuide
         
         landingImageView.image = UIImage(named: "LandingPage")
         landingImageView.contentMode = .scaleAspectFill

@@ -14,7 +14,7 @@ class ChoiceVegitableViewController: CommonOrderViewController {
     var scrollView: UIScrollView = UIScrollView()
     var contentView: UIView = UIView()
     var titleLabel: UILabel = UILabel()
-    var collectionView: UICollectionView = UICollectionView()
+    var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,12 +71,12 @@ class ChoiceVegitableViewController: CommonOrderViewController {
         
         
         // 사이드바 버튼 설정
-        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: false)
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"))
     }
     
     // 사이드바 버튼 클릭
     override func didTapSideBarButtonOverride() {
-        navigationController?.pushViewController(OrderCompleteViewController(), animated: true)
+        navigationController?.pushViewController(SauceViewController(), animated: true)
     }
     
 }
