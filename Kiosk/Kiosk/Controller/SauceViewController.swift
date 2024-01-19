@@ -62,7 +62,7 @@ class SauceViewController: CommonOrderViewController {
             label.text = "소스 선택"
             label.textAlignment = .left
             label.font = .systemFont(ofSize: 30, weight: .regular)
-            sauceLabel.translatesAutoresizingMaskIntoConstraints = false
+            label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
         
@@ -71,7 +71,7 @@ class SauceViewController: CommonOrderViewController {
             label.text = "세트 선택"
             label.textAlignment = .left
             label.font = .systemFont(ofSize: 30, weight: .regular)
-            setLabel.translatesAutoresizingMaskIntoConstraints = false
+            label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
         
@@ -80,7 +80,7 @@ class SauceViewController: CommonOrderViewController {
             label.text = "쿠키 선택"
             label.textAlignment = .left
             label.font = .systemFont(ofSize: 30, weight: .regular)
-            cookieLabel.translatesAutoresizingMaskIntoConstraints = false
+            label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
         
@@ -88,14 +88,16 @@ class SauceViewController: CommonOrderViewController {
         setSingle = {
             let label = ChoiceButton()
             label.buttonTitle = "단품"
-            setSingle.translatesAutoresizingMaskIntoConstraints = false
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.isSelected = false
             return label
         }()
         
         setCookie = {
             let label = ChoiceButton()
             label.buttonTitle = "쿠키세트(음료포함)"
-            setCookie.translatesAutoresizingMaskIntoConstraints = false
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.isSelected = false
             return label
         }()
         
@@ -109,6 +111,7 @@ class SauceViewController: CommonOrderViewController {
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             collectionView.register(SandwichButton.self, forCellWithReuseIdentifier: sauceButton.sandwichButtonID)
+            collectionView.backgroundColor = .clear
             return collectionView
         }()
         
@@ -121,6 +124,7 @@ class SauceViewController: CommonOrderViewController {
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
             collectionView.translatesAutoresizingMaskIntoConstraints = false
             collectionView.register(SandwichButton.self, forCellWithReuseIdentifier: cookieButton.sandwichButtonID)
+            collectionView.backgroundColor = .clear
             return collectionView
         }()
         
@@ -151,7 +155,7 @@ class SauceViewController: CommonOrderViewController {
             
             // contentView 제약
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: cookieCollectionView.bottomAnchor, constant: 20),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 20),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
@@ -167,28 +171,32 @@ class SauceViewController: CommonOrderViewController {
 
             // setLabel 제약
             setLabel.topAnchor.constraint(equalTo: sauceCollectionView.bottomAnchor, constant: 34),
-            setLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 23),
+            setLabel.leadingAnchor.constraint(equalTo: sauceLabel.leadingAnchor),
             setLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             
             // setSingle 제약
             setSingle.topAnchor.constraint(equalTo: setLabel.bottomAnchor, constant: 11),
             setSingle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 23),
+            setSingle.widthAnchor.constraint(equalToConstant: 343),
+            setSingle.heightAnchor.constraint(equalToConstant: 83),
             
             // setCookie 제약
             setCookie.topAnchor.constraint(equalTo: setLabel.bottomAnchor, constant: 11),
-            setCookie.leadingAnchor.constraint(equalTo: setSingle.leadingAnchor, constant: 23),
-            setCookie.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
+            setCookie.leadingAnchor.constraint(equalTo: setSingle.trailingAnchor, constant: 23),
+            setCookie.widthAnchor.constraint(equalTo: setSingle.widthAnchor),
+            setCookie.heightAnchor.constraint(equalTo: setSingle.heightAnchor),
            
             // cookieLabel 제약
-            cookieLabel.topAnchor.constraint(equalTo: setLabel.bottomAnchor, constant: 51),
-            cookieLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 23),
+            cookieLabel.topAnchor.constraint(equalTo: setSingle.bottomAnchor, constant: 51),
+            cookieLabel.leadingAnchor.constraint(equalTo: setLabel.leadingAnchor),
             cookieLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
             // cookieCollectionView 제약
             cookieCollectionView.topAnchor.constraint(equalTo: cookieLabel.bottomAnchor, constant: 25),
-            cookieCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            cookieCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
-            cookieCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
+            cookieCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            cookieCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 40),
+            cookieCollectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -40),
+            cookieCollectionView.heightAnchor.constraint(equalToConstant: 3000)
         ])
         
         
@@ -204,6 +212,12 @@ class SauceViewController: CommonOrderViewController {
         super.viewDidLoad()
         
         currentStep = .choiceSauceSet
+        
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: true)
+    }
+    
+    override func didTapSideBarButtonOverride() {
+        navigationController?.pushViewController(OrderCompleteViewController(), animated: true)
     }
 }
 
@@ -224,17 +238,29 @@ extension SauceViewController: UICollectionViewDelegate, UICollectionViewDataSou
         if collectionView == sauceCollectionView {
             let cell = sauceCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
             
+            if indexPath.row < 9 {
+                cell.thumbnailView.assetImage = "s0" + String(indexPath.row + 1)
+            } else {
+                cell.thumbnailView.assetImage = "s" + String(indexPath.row + 1)
+            }
+            
             cell.sandwichTitle = sauceStore.sauces[indexPath.row].korName
             cell.sandwichEngTitle = sauceStore.sauces[indexPath.row].engName
             if let cal = sauceStore.sauces[indexPath.row].cal {
                 cell.sandwichCalTitle = String(cal) + "kcal"
             }
+            
             return cell
             
         } else {
             let cell = cookieCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
+            
+            cell.thumbnailView.assetImage = "co0" + String(indexPath.row + 1)
             cell.sandwichTitle = cookieStore.cookies[indexPath.row].korName
             cell.sandwichEngTitle = cookieStore.cookies[indexPath.row].engName
+            if let cal = cookieStore.cookies[indexPath.row].cal {
+                cell.sandwichCalTitle = String(cal) + "kcal"
+            }
             
             return cell
         }
@@ -243,17 +269,27 @@ extension SauceViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewSize: CGSize = collectionView.frame.size
         let cellWidth: CGFloat = (collectionViewSize.width - 120) / 3
-        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
-//        collectionView.heightAnchor.constraint(equalToConstant: cellHeight).isActive = true
+        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: true)
     
+        let sauceCollectionViewHeight: CGFloat = 5 * (cellHeight + 40)
+        let cookieCollectionViewHeight: CGFloat = 2 * (cellHeight + 40)
+        sauceCollectionView.heightAnchor.constraint(equalToConstant: sauceCollectionViewHeight).isActive = true
+        cookieCollectionView.heightAnchor.constraint(equalToConstant: cookieCollectionViewHeight).isActive = true
+        
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(OrderCompleteViewController(), animated: true)
+       
+        if collectionView == sauceCollectionView {
+            guard let cell = sauceCollectionView.cellForItem(at: indexPath) as? SandwichButton else { return }
+            cell.isSelect.toggle()
+        } else {
+            guard let cell = cookieCollectionView.cellForItem(at: indexPath) as? SandwichButton else { return }
+            cell.isSelect.toggle()
+        }
+        
     }
-    
-   
 }
 
 extension SauceViewController: ChoiceButtonProtocol {
