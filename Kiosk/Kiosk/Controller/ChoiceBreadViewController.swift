@@ -32,14 +32,14 @@ class ChoiceBreadViewController: CommonOrderViewController {
     override func setupView() {
         super.setupView()
         
+        currentStep = .choiceBread
         
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
         
+        
         choiceBreadCollectionView = {
-            
             let collectionViewLayout = UICollectionViewFlowLayout()
-            
             collectionViewLayout.scrollDirection = .vertical
             collectionViewLayout.minimumLineSpacing = 40
             collectionViewLayout.minimumInteritemSpacing = 40
@@ -52,18 +52,23 @@ class ChoiceBreadViewController: CommonOrderViewController {
             return collectionView
         }()
         
-        customNavigationBar.title = "빵 선택"
+        
         choiceBreadCollectionView.backgroundColor = .systemGray6
         
         choiceCmLabel.text = "사이즈 선택"
         choiceCmLabel.textColor = .black
         choiceCmLabel.font = .systemFont(ofSize: 35, weight: .regular)
+
+        
         
         choice15cmButton.buttonTitle = "15cm"
         choice15cmButton.isSelected = true
+        choice15cmButton.delegate = self
+        
         
         choice30cmButton.buttonTitle = "30cm"
         choice30cmButton.isSelected = false
+        choice30cmButton.delegate = self
         
         choiceToastingLabel.text = "빵 토스팅"
         choiceToastingLabel.textColor = .black
@@ -71,17 +76,19 @@ class ChoiceBreadViewController: CommonOrderViewController {
         
         choiceSelectedButton.buttonTitle = "선택"
         choiceSelectedButton.isSelected = true
-        
+        choiceSelectedButton.delegate = self
+
         choiceNotSelectedButton.buttonTitle = "미선택"
         choiceNotSelectedButton.isSelected = false
-        
+        choiceNotSelectedButton.delegate = self
+
         choiceBreadLabel.text = "빵 선택"
         choiceBreadLabel.textColor = .black
         choiceBreadLabel.font = .systemFont(ofSize: 35, weight: .regular)
         
+        
         view.customAddSubView(scrollView)
         scrollView.customAddSubView(contantView)
-
         contantView.customAddSubView(choiceCmLabel)
         contantView.customAddSubView(choiceToastingLabel)
         contantView.customAddSubView(choiceBreadLabel)
@@ -91,7 +98,9 @@ class ChoiceBreadViewController: CommonOrderViewController {
         contantView.customAddSubView(choice30cmButton)
         contantView.customAddSubView(choiceBreadCollectionView)
         
+        
         choiceBreadCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         
         NSLayoutConstraint.activate([
             
@@ -174,7 +183,8 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
         
         guard let cell = choiceBreadCollectionView.dequeueReusableCell(withReuseIdentifier: BreadCell.identifier, for: indexPath) as? BreadCell else { return UICollectionViewCell() }
         
-        cell.breadImageView.image = UIImage(named: "\(breadStore.bread[indexPath.row].breadEngTitle)")
+        
+        cell.thumbnailView.thumbnailImageView.image = UIImage(named: "b0" + String(indexPath.row + 1))
         cell.breadTitle = breadStore.bread[indexPath.row].breadTitle
         cell.breadEngTitle = breadStore.bread[indexPath.row].breadEngTitle
         cell.breadCalTitle = String(breadStore.bread[indexPath.row].breadKcalTitle)
@@ -183,8 +193,10 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = choiceBreadCollectionView.cellForItem(at: indexPath) as! BreadCell
-//                cell.isSelect.toggle()
+        guard let cell = collectionView.cellForItem(at: indexPath) as? BreadCell else { return }
+        
+        cell.isSelect.toggle()
+        
         navigationController?.pushViewController(ToppingViewController(), animated: true)
     }
     
@@ -197,11 +209,31 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
         
         
         choiceBreadCollectionView.heightAnchor.constraint(equalToConstant: (cellHeight * 2) + 80).isActive = true
+        
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
         return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     }
+    
+}
 
+extension ChoiceBreadViewController: ChoiceButtonProtocol {
+    func didTapButton() {
+
+        if choice15cmButton.isSelected {
+            choice15cmButton.isSelected = true
+            choice30cmButton.isSelected = false
+        } else {
+            choice15cmButton.isSelected = false
+            choice30cmButton.isSelected = true
+        }
+
+        choice15cmButton.isSelected.toggle()
+        choice30cmButton.isSelected.toggle()
+        choiceNotSelectedButton.isSelected.toggle()
+        choiceSelectedButton.isSelected.toggle()
+    }
 }
