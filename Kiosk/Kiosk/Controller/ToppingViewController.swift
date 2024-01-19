@@ -136,7 +136,14 @@ class ToppingViewController: CommonOrderViewController {
         
     }
     
-    override func viewDidLoad() { super.viewDidLoad() }
+    override func viewDidLoad() { 
+        super.viewDidLoad()
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: true)
+    }
+    
+    override func didTapSideBarButtonOverride() {
+        navigationController?.pushViewController(ChoiceVegitableViewController(), animated: true)
+    }
     
 }
 
@@ -164,7 +171,7 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         if collectionView == cheeseCollectionView {
             let cell = cheeseCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
             
-            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "c0" + String(indexPath.row + 1))
+            cell.thumbnailView.assetImage = "c0" + String(indexPath.row + 1)
             cell.sandwichTitle = cheeseStore.cheese[indexPath.row].korName
             cell.sandwichEngTitle = cheeseStore.cheese[indexPath.row].engName
             if let cal = cheeseStore.cheese[indexPath.row].cal {
@@ -176,9 +183,7 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         } else {
             let cell = toppingCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
             
-            
-            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "t0" + String(indexPath.row + 1))
-            
+            cell.thumbnailView.assetImage = "t0" + String(indexPath.row + 1)
             
             cell.sandwichTitle = toppingStore.toppings[indexPath.row].korName
             cell.sandwichEngTitle = toppingStore.toppings[indexPath.row].engName
@@ -193,7 +198,6 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         let collectionViewSize: CGSize = collectionView.frame.size
         let cellWidth: CGFloat = (collectionViewSize.width - 120) / 3
         let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
-//        collectionView.heightAnchor.constraint(equalToConstant: cellHeight).isActive = true
     
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -210,14 +214,5 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         
     }
-    
-}
-
-extension ToppingViewController: ChoiceButtonProtocol {
-    func didTapButton() {
-        
-        print("버튼 눌림")
-    }
-    
     
 }

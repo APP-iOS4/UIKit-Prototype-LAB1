@@ -21,16 +21,36 @@ class PaymentButton: UIButton {
         }
     }
     
+    var isSelect: Bool = false {
+        didSet {
+            if isSelect {
+                containerView.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                containerView.layer.borderWidth = 4
+            } else {
+                containerView.layer.borderWidth = 0
+            }
+            selectImageView.isHidden.toggle()
+        }
+    }
+    
     let containerView: UIView = UIView()
     let paymentImageView: UIImageView = UIImageView()
     let paymentLabel = UILabel()
     let paymentEngLabel = UILabel()
+    let selectImageView: UIImageView = {
+        let selectImageView = UIImageView()
+        selectImageView.image = UIImage(systemName: "checkmark.square.fill")
+        selectImageView.tintColor = .init(named: "mainGreen")
+        selectImageView.contentMode = .scaleAspectFit
+        selectImageView.isHidden = true
+        return selectImageView
+    }()
     
         
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        containerView.backgroundColor = .white
+//        containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 15
         paymentImageView.contentMode = .scaleAspectFit
         paymentImageView.image = UIImage(named: "card")
@@ -45,6 +65,7 @@ class PaymentButton: UIButton {
         containerView.customAddSubView(paymentImageView)
         containerView.customAddSubView(paymentLabel)
         containerView.customAddSubView(paymentEngLabel)
+        containerView.customAddSubView(selectImageView)
         
         NSLayoutConstraint.activate([
             containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -64,6 +85,11 @@ class PaymentButton: UIButton {
             paymentEngLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             paymentEngLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             paymentEngLabel.topAnchor.constraint(equalTo: paymentLabel.bottomAnchor, constant: 3),
+            
+            selectImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
+            selectImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
+            selectImageView.widthAnchor.constraint(equalToConstant: 30),
+            selectImageView.heightAnchor.constraint(equalTo: selectImageView.widthAnchor),
         ])
     }
     
