@@ -47,6 +47,8 @@
 		DF94D1712B57D96A009EBA9E /* VegitableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D16F2B57D96A009EBA9E /* VegitableStore.swift */; };
 		DF94D1742B57D985009EBA9E /* BreadStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1722B57D985009EBA9E /* BreadStore.swift */; };
 		DF94D1752B57D985009EBA9E /* BreadStrct.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1732B57D985009EBA9E /* BreadStrct.swift */; };
+		EF5025AD2B59F777003487DF /* SauceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5025AC2B59F777003487DF /* SauceCell.swift */; };
+		EF5025AF2B59F7C9003487DF /* CookieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5025AE2B59F7C9003487DF /* CookieCell.swift */; };
 		EF9C20A02B57C3EB00673F66 /* SauceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9C209F2B57C3EB00673F66 /* SauceViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +95,8 @@
 		DF94D16F2B57D96A009EBA9E /* VegitableStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VegitableStore.swift; sourceTree = "<group>"; };
 		DF94D1722B57D985009EBA9E /* BreadStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadStore.swift; sourceTree = "<group>"; };
 		DF94D1732B57D985009EBA9E /* BreadStrct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadStrct.swift; sourceTree = "<group>"; };
+		EF5025AC2B59F777003487DF /* SauceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceCell.swift; sourceTree = "<group>"; };
+		EF5025AE2B59F7C9003487DF /* CookieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieCell.swift; sourceTree = "<group>"; };
 		EF9C209F2B57C3EB00673F66 /* SauceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SauceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +220,8 @@
 			children = (
 				DF94D15D2B57C055009EBA9E /* OrderListCell.swift */,
 				DF94D1632B57C87A009EBA9E /* VegitableCell.swift */,
+				EF5025AC2B59F777003487DF /* SauceCell.swift */,
+				EF5025AE2B59F7C9003487DF /* CookieCell.swift */,
 				DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */,
 			);
 			path = Cell;
@@ -317,6 +323,7 @@
 				DF3F839F2B58C5F300B0EBBB /* UIView+Extension.swift in Sources */,
 				0905808D2B57A6BE005985B2 /* CookieStore.swift in Sources */,
 				090580812B578B48005985B2 /* SandwichStore.swift in Sources */,
+				EF5025AD2B59F777003487DF /* SauceCell.swift in Sources */,
 				DF8F62A82B589F70005DF8D1 /* AppDelegate.swift in Sources */,
 				DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */,
 				0905807D2B57848B005985B2 /* ComponentStruct.swift in Sources */,
@@ -331,6 +338,7 @@
 				DF8F62B62B58B29D005DF8D1 /* ThumbnailView.swift in Sources */,
 				DF94D15B2B57BFD6009EBA9E /* SideBar.swift in Sources */,
 				DF94D1752B57D985009EBA9E /* BreadStrct.swift in Sources */,
+				EF5025AF2B59F7C9003487DF /* CookieCell.swift in Sources */,
 				DF3F83AF2B58FE1200B0EBBB /* SideBarButton.swift in Sources */,
 				DF94D16D2B57D8ED009EBA9E /* ChoiceBreadViewController.swift in Sources */,
 				DF94D1702B57D96A009EBA9E /* VegitableModel.swift in Sources */,
