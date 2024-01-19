@@ -32,6 +32,9 @@ class ChoiceBreadViewController: CommonOrderViewController {
     override func setupView() {
         super.setupView()
         
+        // 사이드바 버튼 생성
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"))
+        
         currentStep = .choiceBread
         
         screenWidth = self.view.bounds.width
@@ -47,7 +50,7 @@ class ChoiceBreadViewController: CommonOrderViewController {
             
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
             collectionView.translatesAutoresizingMaskIntoConstraints = false
-            collectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
+            collectionView.register(BreadButton.self, forCellWithReuseIdentifier: BreadButton.breadButtonID)
             collectionView.register(BreadCell.self, forCellWithReuseIdentifier: BreadCell.identifier)
             return collectionView
         }()
@@ -157,19 +160,23 @@ class ChoiceBreadViewController: CommonOrderViewController {
             choiceBreadCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             choiceBreadCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             choiceBreadCollectionView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor),
-            choiceBreadCollectionView.heightAnchor.constraint(equalToConstant: 1500),
             
         ])
         
         choiceBreadCollectionView.delegate = self
         choiceBreadCollectionView.dataSource = self
-        choiceBreadCollectionView.register(BreadButton.self, forCellWithReuseIdentifier: breadButton.breadButtonID)
+        choiceBreadCollectionView.register(BreadButton.self, forCellWithReuseIdentifier: BreadButton.breadButtonID)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    // 사이드바 버튼 실행 함수
+    override func didTapSideBarButtonOverride() {
+        navigationController?.pushViewController(ToppingViewController(), animated: true)
     }
     
 }
@@ -194,10 +201,7 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? BreadCell else { return }
-        
         cell.isSelect.toggle()
-        
-        navigationController?.pushViewController(ToppingViewController(), animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -219,21 +223,28 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
 }
-
+/*
+ let choice15cmButton = ChoiceButton()
+ let choice30cmButton = ChoiceButton()
+ let choiceSelectedButton = ChoiceButton()
+ let choiceNotSelectedButton = ChoiceButton()
+ */
 extension ChoiceBreadViewController: ChoiceButtonProtocol {
-    func didTapButton() {
-
-        if choice15cmButton.isSelected {
+    func didTapButton(_ sender: ChoiceButton) {
+        switch sender {
+        case choice15cmButton:
             choice15cmButton.isSelected = true
             choice30cmButton.isSelected = false
-        } else {
-            choice15cmButton.isSelected = false
+        case choice30cmButton:
             choice30cmButton.isSelected = true
+            choice15cmButton.isSelected = false
+        case choiceSelectedButton:
+            choiceSelectedButton.isSelected = true
+            choiceNotSelectedButton.isSelected = false
+        case choiceNotSelectedButton:
+            choiceNotSelectedButton.isSelected = true
+            choiceSelectedButton.isSelected = false
+        default: break
         }
-
-        choice15cmButton.isSelected.toggle()
-        choice30cmButton.isSelected.toggle()
-        choiceNotSelectedButton.isSelected.toggle()
-        choiceSelectedButton.isSelected.toggle()
     }
 }

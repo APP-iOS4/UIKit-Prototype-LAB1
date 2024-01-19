@@ -9,7 +9,7 @@ import UIKit
 
 class SandwichButton: UICollectionViewCell {
     
-    let sandwichButtonID: String = "SandwichButton"
+    static let sandwichButtonID: String = "SandwichButton"
     
     let thumbnailView = ThumbnailView()
     
@@ -48,10 +48,6 @@ class SandwichButton: UICollectionViewCell {
         
         thumbnailView.titleLabel.adjustsFontSizeToFitWidth = true
         thumbnailView.titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            thumbnailView.titleLabel.leadingAnchor.constraint(equalTo: thumbnailView.leadingAnchor, constant: 15),
-            thumbnailView.titleLabel.trailingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: -15)
-        ])
         
         thumbnailView.constraintEdge(self)
     }

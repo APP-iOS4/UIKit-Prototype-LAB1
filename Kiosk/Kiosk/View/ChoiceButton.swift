@@ -71,7 +71,7 @@ class ChoiceButton: UIView {
     }
     
     @objc func didTapButton() {
-        delegate?.didTapButton()
+        delegate?.didTapButton(self)
     }
 
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class BreadButton: UICollectionViewCell {
     
-    let breadButtonID: String = "BreadButton"
+    static let breadButtonID: String = "BreadButton"
     
     var breadTitle: String = "" {
         didSet {
