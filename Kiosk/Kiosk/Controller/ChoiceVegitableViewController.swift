@@ -125,8 +125,8 @@ extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //navigationController?.pushViewController(SauceViewController(), animated: true)
         guard let cell = collectionView.cellForItem(at: indexPath) as? VegitableCell else { return }
+        
         cell.isSelect.toggle()
     }
     
