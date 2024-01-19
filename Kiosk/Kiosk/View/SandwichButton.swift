@@ -33,18 +33,26 @@ class SandwichButton: UICollectionViewCell {
             thumbnailView.highlightTitle = sandwichCalTitle
         }
     }
+    
+    var isSelect: Bool = false {
+        didSet {
+            thumbnailView.isSelect = isSelect
+        }
+    }
 
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         customAddSubView(thumbnailView)
+        
+        
         thumbnailView.titleLabel.adjustsFontSizeToFitWidth = true
         thumbnailView.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             thumbnailView.titleLabel.leadingAnchor.constraint(equalTo: thumbnailView.leadingAnchor, constant: 15),
             thumbnailView.titleLabel.trailingAnchor.constraint(equalTo: thumbnailView.trailingAnchor, constant: -15)
         ])
-        thumbnailView.titleLabel
+        
         thumbnailView.constraintEdge(self)
     }
     
