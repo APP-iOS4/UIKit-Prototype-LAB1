@@ -31,6 +31,8 @@
 		DF3F83AD2B58EA9300B0EBBB /* NavigationStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83AC2B58EA9300B0EBBB /* NavigationStep.swift */; };
 		DF3F83AF2B58FE1200B0EBBB /* SideBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83AE2B58FE1200B0EBBB /* SideBarButton.swift */; };
 		DF3F83B32B590BB500B0EBBB /* SideBarButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83B22B590BB500B0EBBB /* SideBarButtonProtocol.swift */; };
+		DF3F83B52B591E4700B0EBBB /* OrderCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83B42B591E4700B0EBBB /* OrderCheckViewController.swift */; };
+		DF3F83B72B591F3F00B0EBBB /* CartListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3F83B62B591F3F00B0EBBB /* CartListCell.swift */; };
 		DF8F62A82B589F70005DF8D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */; };
 		DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */; };
 		DF8F62B12B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */; };
@@ -66,6 +68,8 @@
 		DF3F83AC2B58EA9300B0EBBB /* NavigationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStep.swift; sourceTree = "<group>"; };
 		DF3F83AE2B58FE1200B0EBBB /* SideBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarButton.swift; sourceTree = "<group>"; };
 		DF3F83B22B590BB500B0EBBB /* SideBarButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarButtonProtocol.swift; sourceTree = "<group>"; };
+		DF3F83B42B591E4700B0EBBB /* OrderCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCheckViewController.swift; sourceTree = "<group>"; };
+		DF3F83B62B591F3F00B0EBBB /* CartListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListCell.swift; sourceTree = "<group>"; };
 		DF8F62A72B589F70005DF8D1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DF8F62AD2B589FA8005DF8D1 /* PaymentButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentButton.swift; sourceTree = "<group>"; };
 		DF8F62AF2B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarProtocol.swift; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				DF94D1242B57564F009EBA9E /* CommonViewController.swift */,
 				DF94D12E2B575EF6009EBA9E /* CartViewController.swift */,
 				0995CF682B59040B00BE1A97 /* PaymentMethodViewController.swift */,
+				DF3F83B42B591E4700B0EBBB /* OrderCheckViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 				DF94D15D2B57C055009EBA9E /* OrderListCell.swift */,
 				DF94D1632B57C87A009EBA9E /* VegitableCell.swift */,
 				DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */,
+				DF3F83B62B591F3F00B0EBBB /* CartListCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -321,9 +327,11 @@
 				DF8F62AE2B589FA8005DF8D1 /* PaymentButton.swift in Sources */,
 				0905807D2B57848B005985B2 /* ComponentStruct.swift in Sources */,
 				DF3F83B32B590BB500B0EBBB /* SideBarButtonProtocol.swift in Sources */,
+				DF3F83B72B591F3F00B0EBBB /* CartListCell.swift in Sources */,
 				DF8F62B22B589FB7005DF8D1 /* ChoiceButtonProtocol.swift in Sources */,
 				DF3F83AD2B58EA9300B0EBBB /* NavigationStep.swift in Sources */,
 				DF8F62B82B58C179005DF8D1 /* ChoiceVegitableViewController.swift in Sources */,
+				DF3F83B52B591E4700B0EBBB /* OrderCheckViewController.swift in Sources */,
 				DF8F62B12B589FB7005DF8D1 /* CustomNavigationBarProtocol.swift in Sources */,
 				D72969642B57731900CBE78C /* BreadButton.swift in Sources */,
 				DF94D15E2B57C055009EBA9E /* OrderListCell.swift in Sources */,
