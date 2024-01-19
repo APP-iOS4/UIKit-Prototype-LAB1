@@ -33,7 +33,7 @@ class SandwichViewController: CommonViewController {
             return collectionView
         }()
         
-//        customNavigationBar.title = "샌드위치 선택"
+        customNavigationBar.title = "샌드위치 선택"
         sandwichCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(sandwichCollectionView)
         
@@ -48,7 +48,6 @@ class SandwichViewController: CommonViewController {
         
         sandwichCollectionView.delegate = self
         sandwichCollectionView.dataSource = self
-//        sandwichCollectionView.register(SandwichButton.self, forCellWithReuseIdentifier: sandwichButton.sandwichButtonID)
         
     }
     
