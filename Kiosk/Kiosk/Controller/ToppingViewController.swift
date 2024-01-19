@@ -138,7 +138,7 @@ class ToppingViewController: CommonOrderViewController {
     
     override func viewDidLoad() { 
         super.viewDidLoad()
-        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: false)
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: true)
     }
     
     override func didTapSideBarButtonOverride() {
@@ -200,7 +200,6 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         let collectionViewSize: CGSize = collectionView.frame.size
         let cellWidth: CGFloat = (collectionViewSize.width - 120) / 3
         let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
-//        collectionView.heightAnchor.constraint(equalToConstant: cellHeight).isActive = true
     
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -217,14 +216,5 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         
         
     }
-    
-}
-
-extension ToppingViewController: ChoiceButtonProtocol {
-    func didTapButton() {
-        
-        print("버튼 눌림")
-    }
-    
     
 }

@@ -21,8 +21,6 @@ class SandwichViewController: CommonViewController {
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
         
-        
-        
         sandwichCollectionView = {
             let collectionViewLayout = UICollectionViewFlowLayout()
             collectionViewLayout.itemSize = CGSize(width: screenWidth / 5.0, height: screenHeight / 3.0)
@@ -50,7 +48,6 @@ class SandwichViewController: CommonViewController {
         
         sandwichCollectionView.delegate = self
         sandwichCollectionView.dataSource = self
-//        sandwichCollectionView.register(SandwichButton.self, forCellWithReuseIdentifier: sandwichButton.sandwichButtonID)
         
     }
     
