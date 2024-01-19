@@ -10,10 +10,14 @@ import UIKit
 class ChoiceVegitableViewController: CommonOrderViewController {
     
     let vegitableStore = VegitableStore()
+    
+    var scrollView: UIScrollView = UIScrollView()
+    var contentView: UIView = UIView()
+    var titleLabel: UILabel = UILabel()
+    var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func setupView() {
@@ -21,14 +25,7 @@ class ChoiceVegitableViewController: CommonOrderViewController {
         
         currentStep = .choiceVegitable
         
-        let scrollView: UIScrollView = {
-            let scrollView = UIScrollView()
-            return scrollView
-        }()
-        
-        let contentView: UIView = UIView()
-        
-        let titleLabel: UILabel = {
+        titleLabel = {
             let titleLabel = UILabel()
             titleLabel.text = "야채 선택"
             titleLabel.textColor = .black
@@ -37,7 +34,7 @@ class ChoiceVegitableViewController: CommonOrderViewController {
             return titleLabel
         }()
         
-        let collectionView: UICollectionView = {
+        collectionView = {
             let collectionViewLayout = UICollectionViewFlowLayout()
             collectionViewLayout.scrollDirection = .vertical
             collectionViewLayout.minimumLineSpacing = 40
@@ -49,7 +46,6 @@ class ChoiceVegitableViewController: CommonOrderViewController {
             collectionView.dataSource = self
             return collectionView
         }()
-        
         
         view.customAddSubView(scrollView)
         scrollView.customAddSubView(contentView)
@@ -64,7 +60,6 @@ class ChoiceVegitableViewController: CommonOrderViewController {
             scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            
             titleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 23),
             titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 34),
             
@@ -76,12 +71,12 @@ class ChoiceVegitableViewController: CommonOrderViewController {
         
         
         // 사이드바 버튼 설정
-        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: false)
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"))
     }
     
     // 사이드바 버튼 클릭
     override func didTapSideBarButtonOverride() {
-        print("사이드바 버튼이 눌림")
+        navigationController?.pushViewController(SauceViewController(), animated: true)
     }
     
 }
@@ -108,14 +103,16 @@ extension ChoiceVegitableViewController: UICollectionViewDelegate, UICollectionV
         let cellMargin: Int = 40
         // 셀의 행 개수
         let cellRows: Int = vegitableStore.vegitableArray.count / columns
-        
+        // 햔재 컬렉션뷰의 사이즈
         let collectionViewSize: CGSize = collectionView.frame.size
+        // 셀의 가로 사이즈 설정 (컬렉션뷰의 사이즈에서 셀의 여백값을 뺀 후, 한 줄에 표시 될 셀의 개수를 나눔)
         let cellWidth: CGFloat = (collectionViewSize.width - CGFloat(cellMargin * (columns + 1))) / CGFloat(columns)
+        // 셀의 높이 사이즈 설정 (가로 사이즈를 넘긴 더미 뷰로부터 높이값을 가져옴)
         let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: true)
+        // 컬렉션뷰의 높이 설정 (셀의 행의 개수와 셀의 높이, 각 여백 값을 더해줌)
         let collectionViewHeight: CGFloat = (cellHeight * CGFloat(cellRows)) + CGFloat(cellMargin * cellRows)
-
+        // 컬렉션뷰의 높이 제약 설정
         collectionView.heightAnchor.constraint(equalToConstant: collectionViewHeight).isActive = true
-        
  
         return CGSize(width: cellWidth, height: cellHeight)
     }

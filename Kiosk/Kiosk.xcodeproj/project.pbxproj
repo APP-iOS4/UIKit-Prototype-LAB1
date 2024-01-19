@@ -17,6 +17,7 @@
 		090580912B57A8CD005985B2 /* SandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580902B57A8CD005985B2 /* SandwichViewController.swift */; };
 		090580932B57AD50005985B2 /* ToppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090580922B57AD50005985B2 /* ToppingViewController.swift */; };
 		0995CF692B59040B00BE1A97 /* PaymentMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995CF682B59040B00BE1A97 /* PaymentMethodViewController.swift */; };
+		0995CF6B2B59FE8100BE1A97 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995CF6A2B59FE8100BE1A97 /* LandingPageViewController.swift */; };
 		D72969622B57705F00CBE78C /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D72969642B57731900CBE78C /* BreadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72969632B57731900CBE78C /* BreadButton.swift */; };
 		DF3F839F2B58C5F300B0EBBB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF94D1292B57585A009EBA9E /* UIView+Extension.swift */; };
@@ -65,6 +66,7 @@
 		090580902B57A8CD005985B2 /* SandwichViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SandwichViewController.swift; sourceTree = "<group>"; };
 		090580922B57AD50005985B2 /* ToppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToppingViewController.swift; sourceTree = "<group>"; };
 		0995CF682B59040B00BE1A97 /* PaymentMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodViewController.swift; sourceTree = "<group>"; };
+		0995CF6A2B59FE8100BE1A97 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
 		D72969632B57731900CBE78C /* BreadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadButton.swift; sourceTree = "<group>"; };
 		DF3F83A82B58DE3100B0EBBB /* BreadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreadCell.swift; sourceTree = "<group>"; };
 		DF3F83AC2B58EA9300B0EBBB /* NavigationStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStep.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				DF94D12E2B575EF6009EBA9E /* CartViewController.swift */,
 				0995CF682B59040B00BE1A97 /* PaymentMethodViewController.swift */,
 				DF3F83B42B591E4700B0EBBB /* OrderCheckViewController.swift */,
+				0995CF6A2B59FE8100BE1A97 /* LandingPageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				DF94D1642B57C87A009EBA9E /* VegitableCell.swift in Sources */,
 				0995CF692B59040B00BE1A97 /* PaymentMethodViewController.swift in Sources */,
 				D72969622B57705F00CBE78C /* (null) in Sources */,
+				0995CF6B2B59FE8100BE1A97 /* LandingPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

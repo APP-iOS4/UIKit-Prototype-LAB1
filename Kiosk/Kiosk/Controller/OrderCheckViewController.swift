@@ -27,8 +27,7 @@ class OrderCheckViewController: CommonOrderViewController {
     
     override func setupView() {
         super.setupView()
-        
-        print("ordercheck")
+    
         
         customNavigationBar.title = "장바구니"
         sideBar.sideBarButton.setTitle("결제수단 선택", color: .init(named: "mainOrange"))
@@ -44,8 +43,7 @@ class OrderCheckViewController: CommonOrderViewController {
     }
     
     override func didTapSideBarButtonOverride() {
-//        super.didTapSideBarButtonOverride()
-        print("결제수단 터치")
+        navigationController?.pushViewController(PaymentMethodViewController(), animated: true)
     }
 }
 
@@ -61,6 +59,9 @@ extension OrderCheckViewController: UITableViewDelegate, UITableViewDataSource {
         cell.subTitle = "Half Lobster & Half Shrimp"
         cell.highlightTitle = "284 kcal"
         cell.assetImage = "m01"
+        cell.orderList = [
+            "플랫브레드(15cm)", "아메리칸치즈", "아보카도추가", "양상추, 아보카도, 할라피뇨, 올리브", "스위트 어니언, 핫칠리", "쿠키세트 (음료포함), 라즈베리 치즈케익"
+        ]
         return cell
     }
     

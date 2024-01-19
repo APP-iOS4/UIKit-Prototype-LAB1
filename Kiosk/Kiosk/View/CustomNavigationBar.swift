@@ -26,6 +26,10 @@ class CustomNavigationBar: UIView {
     }
     
     
+    var backButton: UIButton = UIButton()
+    var homeButton: UIButton = UIButton()
+    var rightButton: UIButton = UIButton()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,7 +41,7 @@ class CustomNavigationBar: UIView {
             return containerView
         }()
         
-        let backButton: UIButton = {
+        backButton = {
             let backButton = UIButton(type: .custom)
             backButton.setImage(.init(systemName: "chevron.backward"), for: .normal)
             backButton.setPreferredSymbolConfiguration(.init(pointSize: 35, weight: .regular, scale: .default), forImageIn: .normal)
@@ -46,7 +50,7 @@ class CustomNavigationBar: UIView {
             return backButton
         }()
         
-        let homeButton: UIButton = {
+        homeButton = {
             let homeButton = UIButton()
             homeButton.setImage(.init(systemName: "house"), for: .normal)
             homeButton.setPreferredSymbolConfiguration(.init(pointSize: 35, weight: .regular, scale: .default), forImageIn: .normal)
@@ -55,7 +59,7 @@ class CustomNavigationBar: UIView {
             return homeButton
         }()
         
-        let rightButton: UIButton = {
+        rightButton = {
             let rightButton = UIButton()
             rightButton.setImage(.init(systemName: "cart"), for: .normal)
             rightButton.setPreferredSymbolConfiguration(.init(pointSize: 35, weight: .regular, scale: .default), forImageIn: .normal)
@@ -64,7 +68,7 @@ class CustomNavigationBar: UIView {
             return rightButton
         }()
         
-        titleLabel.text = "텍스트"
+//        titleLabel.text = "텍스트"
         titleLabel.font = .systemFont(ofSize: 30, weight: .regular)
         titleLabel.textColor = .white
         titleLabel.sizeToFit()

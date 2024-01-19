@@ -18,7 +18,12 @@ class PaymentMethodViewController: CommonOrderViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customNavigationBar.title = "장바구니"
+        customNavigationBar.title = "결제수단 선택"
+        sideBar.sideBarButton.setTitle("결제하기", color: .init(named: "mainOrange"), isActive: true)
+    }
+    
+    override func didTapSideBarButtonOverride() {
+        navigationController?.pushViewController(OrderCompleteViewController(), animated: true)
     }
     
     override func setupView() {
@@ -48,21 +53,25 @@ class PaymentMethodViewController: CommonOrderViewController {
 
         cardButton.paymentTitle = "카드"
         cardButton.paymentEngTitle = "Card"
-//        cardButton.paymentImageView.image = UIImage(named: <#T##String#>)
+        cardButton.containerView.backgroundColor = .white
+        cardButton.paymentImageView.image = UIImage(named: "card")
         
         naverButton.paymentTitle = "네이버 페이"
         naverButton.paymentEngTitle = "Naver Pay"
-        naverButton.containerView.backgroundColor = .systemGreen
-//        naverButton.paymentImageView.image = UIImage(named: <#T##String#>)
+        naverButton.containerView.backgroundColor = UIColor(red: 90/255, green: 197/255, blue: 81/255, alpha: 1)
+        naverButton.paymentImageView.image = UIImage(named: "npay")
+        naverButton.paymentEngLabel.textColor = .white
         
         kakaoButton.paymentTitle = "카카오 페이"
         kakaoButton.paymentEngTitle = "Kakao Pay"
-        kakaoButton.containerView.backgroundColor = .systemYellow
-//        kakaoButton.paymentImageView.image = UIImage(named: <#T##String#>)
+        kakaoButton.containerView.backgroundColor = UIColor(red: 251/255, green: 225/255, blue: 76/255, alpha: 1)
+        kakaoButton.paymentImageView.image = UIImage(named: "kpay")
+        kakaoButton.paymentEngLabel.textColor = .white
         
         cashButton.paymentTitle = "현금"
         cashButton.paymentEngTitle = "Cash"
-//        cashButton.paymentImageView.image = UIImage(named: <#T##String#>)
+        cashButton.containerView.backgroundColor = .white
+        cashButton.paymentImageView.image = UIImage(named: "cash")
         
         self.view.customAddSubView(cardButton)
         self.view.customAddSubView(naverButton)
@@ -111,61 +120,85 @@ class PaymentMethodViewController: CommonOrderViewController {
         switch sender.tag {
         case 1:
             if whichButtonSeleted == 0 {
-                cardButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                cardButton.isSelect.toggle()
                 whichButtonSeleted = 1
             } else if whichButtonSeleted == 1 {
-                cardButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                cardButton.isSelect.toggle()
                 whichButtonSeleted = 0
             } else {
-                cardButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                cardButton.isSelect.toggle()
                 whichButtonSeleted = 1
-                naverButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                kakaoButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                cashButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                if naverButton.isSelect == true {
+                    naverButton.isSelect.toggle()
+                }
+                if kakaoButton.isSelect == true {
+                    kakaoButton.isSelect.toggle()
+                }
+                if cashButton.isSelect == true {
+                    cashButton.isSelect.toggle()
+                }
             }
         case 2: // naverbutton
             if whichButtonSeleted == 0 {
-                naverButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                naverButton.isSelect.toggle()
                 whichButtonSeleted = 2
             } else if whichButtonSeleted == 2 {
-                naverButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                naverButton.isSelect.toggle()
                 whichButtonSeleted = 0
             } else {
-                naverButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                naverButton.isSelect.toggle()
                 whichButtonSeleted = 2
-                cardButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                kakaoButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                cashButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                if cardButton.isSelect == true {
+                    cardButton.isSelect.toggle()
+                }
+                if kakaoButton.isSelect == true {
+                    kakaoButton.isSelect.toggle()
+                }
+                if cashButton.isSelect == true {
+                    cashButton.isSelect.toggle()
+                }
             }
             
         case 3: // kakaobutton
             if whichButtonSeleted == 0 {
-                kakaoButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                kakaoButton.isSelect.toggle()
                 whichButtonSeleted = 3
             } else if whichButtonSeleted == 3 {
-                kakaoButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                kakaoButton.isSelect.toggle()
                 whichButtonSeleted = 0
             } else {
-                kakaoButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                kakaoButton.isSelect.toggle()
                 whichButtonSeleted = 3
-                naverButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                cardButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                cashButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                if cardButton.isSelect == true {
+                    cardButton.isSelect.toggle()
+                }
+                if naverButton.isSelect == true {
+                    naverButton.isSelect.toggle()
+                }
+                if cashButton.isSelect == true {
+                    cashButton.isSelect.toggle()
+                }
             }
             
         case 4: // cashButton
             if whichButtonSeleted == 0 {
-                cashButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                cashButton.isSelect.toggle()
                 whichButtonSeleted = 4
             } else if whichButtonSeleted == 4 {
-                cashButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                cashButton.isSelect.toggle()
                 whichButtonSeleted = 0
             } else {
-                cashButton.layer.borderColor = UIColor(named: "mainGreen")?.cgColor
+                cashButton.isSelect.toggle()
                 whichButtonSeleted = 4
-                naverButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                kakaoButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
-                cardButton.layer.borderColor = .init(gray: 0.5, alpha: 0.5)
+                if cardButton.isSelect == true {
+                    cardButton.isSelect.toggle()
+                }
+                if naverButton.isSelect == true {
+                    naverButton.isSelect.toggle()
+                }
+                if kakaoButton.isSelect == true {
+                    kakaoButton.isSelect.toggle()
+                }
             }
         default:
             break

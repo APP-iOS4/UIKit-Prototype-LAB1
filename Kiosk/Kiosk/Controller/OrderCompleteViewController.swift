@@ -9,9 +9,11 @@ import UIKit
 
 class OrderCompleteViewController: UIViewController {
     
+    var remainCount: Int = 5
+    var countLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         setupView()
     }
@@ -48,7 +50,7 @@ class OrderCompleteViewController: UIViewController {
             return bottomLabel
         }()
         
-        let countLabel: UILabel = {
+        countLabel = {
             let countLabel = UILabel()
             countLabel.text = "처음 화면으로  5..."
             countLabel.textColor = .white
@@ -101,6 +103,14 @@ class OrderCompleteViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: countLabel.trailingAnchor),
             button.bottomAnchor.constraint(equalTo: arrowImageView.bottomAnchor)
         ])
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.remainCount -= 1
+            self.countLabel.text = "처음 화면으로  \(self.remainCount)..."
+            if self.remainCount <= 0 {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
         
     }
     

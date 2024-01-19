@@ -47,7 +47,7 @@ class ToppingViewController: CommonOrderViewController {
             let label = UILabel()
             label.text = "치즈 선택"
             label.textAlignment = .center
-            label.font = .systemFont(ofSize: 40, weight: .heavy)
+            label.font = .systemFont(ofSize: 30, weight: .regular)
             return label
         }()
         
@@ -55,7 +55,7 @@ class ToppingViewController: CommonOrderViewController {
             let label = UILabel()
             label.text = "토핑 선택"
             label.textAlignment = .center
-            label.font = .systemFont(ofSize: 40, weight: .heavy)
+            label.font = .systemFont(ofSize: 30, weight: .regular)
             return label
         }()
         
@@ -67,7 +67,7 @@ class ToppingViewController: CommonOrderViewController {
             collectionViewLayout.minimumInteritemSpacing = 10
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
             collectionView.translatesAutoresizingMaskIntoConstraints = false
-            collectionView.register(SandwichButton.self, forCellWithReuseIdentifier: cheeseButton.sandwichButtonID)
+            collectionView.register(SandwichButton.self, forCellWithReuseIdentifier: SandwichButton.sandwichButtonID)
             cheeseCellHeight = collectionViewLayout.itemSize.height
             return collectionView
         }()
@@ -79,7 +79,7 @@ class ToppingViewController: CommonOrderViewController {
             collectionViewLayout.minimumInteritemSpacing = 10
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
             collectionView.translatesAutoresizingMaskIntoConstraints = false
-            collectionView.register(SandwichButton.self, forCellWithReuseIdentifier: cheeseButton.sandwichButtonID)
+            collectionView.register(SandwichButton.self, forCellWithReuseIdentifier: SandwichButton.sandwichButtonID)
             toppingCellHeight = collectionViewLayout.itemSize.height
             return collectionView
         }()
@@ -98,10 +98,10 @@ class ToppingViewController: CommonOrderViewController {
         
         NSLayoutConstraint.activate([
             
-            toppingScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor, constant: 34),
+            toppingScrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
             toppingScrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            toppingScrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 30),
-            toppingScrollView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor, constant: -30),
+            toppingScrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            toppingScrollView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor),
             
             contentView.topAnchor.constraint(equalTo: toppingScrollView.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: toppingScrollView.bottomAnchor),
@@ -109,7 +109,7 @@ class ToppingViewController: CommonOrderViewController {
             contentView.leadingAnchor.constraint(equalTo: toppingScrollView.leadingAnchor),
             contentView.widthAnchor.constraint(equalTo: toppingScrollView.widthAnchor),
             
-            cheeseLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cheeseLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 34),
             cheeseLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
             
             cheeseCollectionView.topAnchor.constraint(equalTo: cheeseLabel.bottomAnchor, constant: 25),
@@ -117,7 +117,7 @@ class ToppingViewController: CommonOrderViewController {
             cheeseCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
             cheeseCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             
-            toppingLabel.topAnchor.constraint(equalTo: cheeseCollectionView.bottomAnchor, constant: 25),
+            toppingLabel.topAnchor.constraint(equalTo: cheeseCollectionView.bottomAnchor, constant: 46),
             toppingLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
             
             toppingCollectionView.topAnchor.constraint(equalTo: toppingLabel.bottomAnchor, constant: 25),
@@ -132,23 +132,28 @@ class ToppingViewController: CommonOrderViewController {
         toppingCollectionView.delegate = self
         toppingCollectionView.dataSource = self
         
-        cheeseCollectionView.register(SandwichButton.self, forCellWithReuseIdentifier: cheeseButton.sandwichButtonID)
+        cheeseCollectionView.register(SandwichButton.self, forCellWithReuseIdentifier: SandwichButton.sandwichButtonID)
         
     }
     
-    override func viewDidLoad() { super.viewDidLoad() }
+    override func viewDidLoad() { 
+        super.viewDidLoad()
+        sideBar.sideBarButton.setTitle("다음", color: .init(named: "mainOrange"), isActive: true)
+    }
+    
+    override func didTapSideBarButtonOverride() {
+        navigationController?.pushViewController(ChoiceVegitableViewController(), animated: true)
+    }
     
 }
 
 extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print(collectionView)
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         if collectionView == cheeseCollectionView {
             return cheeseStore.cheese.count
         }
@@ -160,11 +165,10 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if collectionView == cheeseCollectionView {
             let cell = cheeseCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
             
-            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "c0" + String(indexPath.row + 1))
+            cell.thumbnailView.assetImage = "c0" + String(indexPath.row + 1)
             cell.sandwichTitle = cheeseStore.cheese[indexPath.row].korName
             cell.sandwichEngTitle = cheeseStore.cheese[indexPath.row].engName
             if let cal = cheeseStore.cheese[indexPath.row].cal {
@@ -176,26 +180,13 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         } else {
             let cell = toppingCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
             
-            
-            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "t0" + String(indexPath.row + 1))
-            
+            cell.thumbnailView.assetImage = "t0" + String(indexPath.row + 1)
             
             cell.sandwichTitle = toppingStore.toppings[indexPath.row].korName
             cell.sandwichEngTitle = toppingStore.toppings[indexPath.row].engName
             
             return cell
         }
-        
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let collectionViewSize: CGSize = collectionView.frame.size
-        let cellWidth: CGFloat = (collectionViewSize.width - 120) / 3
-        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
-//        collectionView.heightAnchor.constraint(equalToConstant: cellHeight).isActive = true
-    
-        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -207,17 +198,17 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
             guard let cell = toppingCollectionView.cellForItem(at: indexPath) as? SandwichButton else { return }
             cell.isSelect.toggle()
         }
-        
-        
     }
     
-}
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let collectionViewSize: CGSize = collectionView.frame.size
+        let cellWidth: CGFloat = (collectionViewSize.width - 120) / 3
+        let cellHeight: CGFloat = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: false)
+    
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
 
-extension ToppingViewController: ChoiceButtonProtocol {
-    func didTapButton() {
-        
-        print("버튼 눌림")
-    }
-    
     
 }
