@@ -7,7 +7,10 @@
 
 import UIKit
 
-class ChoiceBreadViewController: CommonViewController {
+class ChoiceBreadViewController: CommonOrderViewController {
+    
+    let scrollView = UIScrollView()
+    let contantView = UIView()
     
     let breadStore = BreadStore()
     var choiceBreadCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -29,16 +32,17 @@ class ChoiceBreadViewController: CommonViewController {
     override func setupView() {
         super.setupView()
         
+        
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
         
         choiceBreadCollectionView = {
             
             let collectionViewLayout = UICollectionViewFlowLayout()
-            collectionViewLayout.itemSize = CGSize(width: screenWidth / 4.0, height: screenWidth / 3.0)
+            
             collectionViewLayout.scrollDirection = .vertical
-            collectionViewLayout.minimumLineSpacing = 80
-            collectionViewLayout.minimumInteritemSpacing = 10
+            collectionViewLayout.minimumLineSpacing = 40
+            collectionViewLayout.minimumInteritemSpacing = 40
             choiceBreadCollectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
             
             let collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
@@ -75,41 +79,57 @@ class ChoiceBreadViewController: CommonViewController {
         choiceBreadLabel.textColor = .black
         choiceBreadLabel.font = .systemFont(ofSize: 35, weight: .regular)
         
-        view.customAddSubView(choiceCmLabel)
-        view.customAddSubView(choiceToastingLabel)
-        view.customAddSubView(choiceBreadLabel)
-        view.customAddSubView(choiceSelectedButton)
-        view.customAddSubView(choiceNotSelectedButton)
-        view.customAddSubView(choice15cmButton)
-        view.customAddSubView(choice30cmButton)
-        view.customAddSubView(choiceBreadCollectionView)
+        view.customAddSubView(scrollView)
+        scrollView.customAddSubView(contantView)
+
+        contantView.customAddSubView(choiceCmLabel)
+        contantView.customAddSubView(choiceToastingLabel)
+        contantView.customAddSubView(choiceBreadLabel)
+        contantView.customAddSubView(choiceSelectedButton)
+        contantView.customAddSubView(choiceNotSelectedButton)
+        contantView.customAddSubView(choice15cmButton)
+        contantView.customAddSubView(choice30cmButton)
+        contantView.customAddSubView(choiceBreadCollectionView)
         
         choiceBreadCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            
+            // 스크롤뷰
+            scrollView.topAnchor.constraint(equalTo: customNavigationBar.bottomAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor),
+            
+            contantView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contantView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contantView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contantView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contantView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
             // 사이즈 선택
-            choiceCmLabel.centerYAnchor.constraint(equalTo: safeArea.topAnchor, constant: 141),
-            choiceCmLabel.centerXAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 110),
+            choiceCmLabel.centerYAnchor.constraint(equalTo: scrollView.topAnchor, constant: 50),
+            choiceCmLabel.centerXAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 110),
             
             // 15cm
-            choice15cmButton.centerYAnchor.constraint(equalTo: safeArea.topAnchor, constant: 220),
-            choice15cmButton.centerXAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 200),
+            choice15cmButton.centerYAnchor.constraint(equalTo: scrollView.topAnchor, constant: 130),
+            choice15cmButton.centerXAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 200),
             choice15cmButton.widthAnchor.constraint(equalToConstant: 343),
             choice15cmButton.heightAnchor.constraint(equalToConstant: 83),
             
             // 30cm
-            choice30cmButton.centerYAnchor.constraint(equalTo: safeArea.topAnchor, constant: 220),
+            choice30cmButton.centerYAnchor.constraint(equalTo: scrollView.topAnchor, constant: 130),
             choice30cmButton.leadingAnchor.constraint(equalTo: choice15cmButton.trailingAnchor, constant: 25),
             choice30cmButton.widthAnchor.constraint(equalToConstant: 343),
             choice30cmButton.heightAnchor.constraint(equalToConstant: 83),
             
             // 빵 토스팅
             choiceToastingLabel.topAnchor.constraint(equalTo: choice15cmButton.bottomAnchor, constant: 33),
-            choiceToastingLabel.centerXAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 98),
+            choiceToastingLabel.centerXAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 98),
             
             // 선택
             choiceSelectedButton.topAnchor.constraint(equalTo: choice15cmButton.bottomAnchor, constant: 90),
-            choiceSelectedButton.centerXAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 200),
+            choiceSelectedButton.centerXAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 200),
             choiceSelectedButton.widthAnchor.constraint(equalToConstant: 343),
             choiceSelectedButton.heightAnchor.constraint(equalToConstant: 83),
             
@@ -121,13 +141,14 @@ class ChoiceBreadViewController: CommonViewController {
             
             // 빵 토스팅
             choiceBreadLabel.topAnchor.constraint(equalTo: choiceSelectedButton.bottomAnchor, constant: 33),
-            choiceBreadLabel.centerXAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 81),
+            choiceBreadLabel.centerXAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 81),
             
             // 빵
             choiceBreadCollectionView.topAnchor.constraint(equalTo: choiceSelectedButton.bottomAnchor, constant: 90),
-            choiceBreadCollectionView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            choiceBreadCollectionView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            choiceBreadCollectionView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            choiceBreadCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            choiceBreadCollectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            choiceBreadCollectionView.trailingAnchor.constraint(equalTo: sideBar.leadingAnchor),
+            choiceBreadCollectionView.heightAnchor.constraint(equalToConstant: 1500),
             
         ])
         
@@ -165,6 +186,18 @@ extension ChoiceBreadViewController: UICollectionViewDelegate, UICollectionViewD
         let cell = choiceBreadCollectionView.cellForItem(at: indexPath) as! BreadCell
 //                cell.isSelect.toggle()
         navigationController?.pushViewController(ToppingViewController(), animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let collectionViewWidth = collectionView.frame.width
+        let cellWidth = (collectionViewWidth - 160) / 3
+        
+        let cellHeight = ThumbnailView.getDummyHeight(cellWidth, isHighlightTitle: true)
+        
+        
+        choiceBreadCollectionView.heightAnchor.constraint(equalToConstant: (cellHeight * 2) + 80).isActive = true
+        return CGSize(width: cellWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
