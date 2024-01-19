@@ -38,7 +38,7 @@ class CommonOrderViewController: CommonViewController  {
 // MARK: - 사이드바 버튼 델리게이트
 extension CommonOrderViewController: SideBarButtonProtocol {
     func didTapSideBarButton() {
-        didTapSideBarButton()
+        didTapSideBarButtonOverride()
     }
     
     

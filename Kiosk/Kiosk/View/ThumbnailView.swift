@@ -86,10 +86,14 @@ class ThumbnailView: UIView {
         
         titleLabel.textColor = .black
         titleLabel.font = .systemFont(ofSize: 30, weight: .semibold)
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.7
         titleLabel.textAlignment = .center
         titleLabel.sizeToFit()
         
         subTitleLabel.font = .systemFont(ofSize: 20, weight: .semibold)
+        subTitleLabel.adjustsFontSizeToFitWidth = true
+        subTitleLabel.minimumScaleFactor = 0.7
         subTitleLabel.textColor = .init(named: "paymentEngLabel")
         subTitleLabel.textAlignment = .center
         subTitleLabel.sizeToFit()
@@ -118,17 +122,17 @@ class ThumbnailView: UIView {
             thumbnailImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -45),
             thumbnailImageView.heightAnchor.constraint(equalTo: thumbnailImageView.widthAnchor, multiplier: 40.0 / 57.0),
             
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             titleLabel.topAnchor.constraint(equalTo: thumbnailImageView.bottomAnchor, constant: 33),
             
-            subTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            subTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            subTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            subTitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 3),
             
-            highlightTitleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            highlightTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            highlightTitleLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 10),
+            highlightTitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            highlightTitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            highlightTitleLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 38),
             
             selectImageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 15),
             selectImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
