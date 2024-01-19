@@ -21,6 +21,8 @@ class SandwichViewController: CommonViewController {
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
         
+        
+        
         sandwichCollectionView = {
             let collectionViewLayout = UICollectionViewFlowLayout()
             collectionViewLayout.itemSize = CGSize(width: screenWidth / 5.0, height: screenHeight / 3.0)
@@ -33,7 +35,7 @@ class SandwichViewController: CommonViewController {
             return collectionView
         }()
         
-//        customNavigationBar.title = "샌드위치 선택"
+        customNavigationBar.title = "샌드위치 선택"
         sandwichCollectionView.backgroundColor = .systemGray6
         self.view.addSubview(sandwichCollectionView)
         
