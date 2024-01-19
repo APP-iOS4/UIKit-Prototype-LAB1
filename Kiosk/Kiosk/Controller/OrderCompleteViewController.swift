@@ -11,7 +11,6 @@ class OrderCompleteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
         setupView()
     }
