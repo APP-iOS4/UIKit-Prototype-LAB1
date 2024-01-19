@@ -13,10 +13,6 @@ class SandwichButton: UICollectionViewCell {
     
     let thumbnailView = ThumbnailView()
     
-//    var sandwichImage: UIImage = UIImage(named: "m01") {
-//        
-//    } ?? UIImage(named: "m01")!
-    
     var sandwichTitle: String = "" {
         didSet {
 //            sandwichLabel.text = sandwichTitle
@@ -35,6 +31,12 @@ class SandwichButton: UICollectionViewCell {
         didSet {
 //            sandwichCalLabel.text = sandwichCalTitle
             thumbnailView.highlightTitle = sandwichCalTitle
+        }
+    }
+    
+    var isSelect: Bool = false {
+        didSet {
+            thumbnailView.isSelect = isSelect
         }
     }
 

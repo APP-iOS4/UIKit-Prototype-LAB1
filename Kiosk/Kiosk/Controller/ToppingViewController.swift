@@ -34,6 +34,8 @@ class ToppingViewController: CommonOrderViewController {
         screenWidth = self.view.bounds.width
         screenHeight = self.view.bounds.height
         
+        currentStep = .choiceTopping
+        
         toppingScrollView = {
             let scrollView = UIScrollView()
             scrollView.backgroundColor = .systemGray6
@@ -82,7 +84,7 @@ class ToppingViewController: CommonOrderViewController {
             return collectionView
         }()
         
-        customNavigationBar.title = "토핑 테스트"
+
         cheeseCollectionView.backgroundColor = .clear
         toppingCollectionView.backgroundColor = .clear
         
@@ -152,7 +154,6 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         
         if collectionView == toppingCollectionView {
-//            print("aaaaaaaa" + String(toppingStore.toppings.count))
             return toppingStore.toppings.count
         }
         return 1
@@ -163,6 +164,7 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
         if collectionView == cheeseCollectionView {
             let cell = cheeseCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
             
+            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "c0" + String(indexPath.row + 1))
             cell.sandwichTitle = cheeseStore.cheese[indexPath.row].korName
             cell.sandwichEngTitle = cheeseStore.cheese[indexPath.row].engName
             if let cal = cheeseStore.cheese[indexPath.row].cal {
@@ -173,6 +175,11 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
             
         } else {
             let cell = toppingCollectionView.dequeueReusableCell(withReuseIdentifier: "SandwichButton", for: indexPath) as! SandwichButton
+            
+            
+            cell.thumbnailView.thumbnailImageView.image = UIImage(named: "t0" + String(indexPath.row + 1))
+            
+            
             cell.sandwichTitle = toppingStore.toppings[indexPath.row].korName
             cell.sandwichEngTitle = toppingStore.toppings[indexPath.row].engName
             
@@ -192,7 +199,16 @@ extension ToppingViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(ChoiceVegitableViewController(), animated: true)
+        
+        if collectionView == cheeseCollectionView {
+            guard let cell = cheeseCollectionView.cellForItem(at: indexPath) as? SandwichButton else { return }
+            cell.isSelect.toggle()
+        } else {
+            guard let cell = toppingCollectionView.cellForItem(at: indexPath) as? SandwichButton else { return }
+            cell.isSelect.toggle()
+        }
+        
+        
     }
     
 }
